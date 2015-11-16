@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    font-size: 16px;
+}
+
+#adminInterface {
+    height: 100%;
+}
+#adminHeader, #headerRight, #headerLeft {
+	height: 50px;
+}
+#headerRight {
+	width: 100px;
+	text-align: right;
+}
+#adminLeft {
+    width: 200px;
+}
+
+.claro #adminInterface .edgePanel {
+    background-color: #d0e9fc;
+}
+
+#viewsChart {
+    width: 550px;
+    height: 550px;
+}
