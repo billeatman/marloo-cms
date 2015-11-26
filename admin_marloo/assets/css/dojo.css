@@ -3,7 +3,11 @@ html, body {
     margin: 0;
     overflow: hidden;
     padding: 0;
-    font-size: 16px;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 #adminInterface {
@@ -13,7 +17,7 @@ html, body {
 	height: 50px;
 }
 #headerRight {
-	width: 100px;
+	width: 350px;
 	text-align: right;
 }
 #adminLeft {
@@ -27,4 +31,45 @@ html, body {
 #viewsChart {
     width: 550px;
     height: 550px;
+}
+
+/* ICON CLASSES */
+.ccMonoIconBrowse {
+    background-image: url('../icons/cc/selected/globe_3_icon&16.png');
+}
+.ccMonoIconSearch {
+    background-image: url('../icons/cc/selected/zoom_icon&16.png');
+}
+.ccMonoIconManagement {
+    background-image: url('../icons/cc/selected/cogs_icon&16.png');
+}
+.ccMonoIconLogOut {
+    background-image: url('../icons/cc/selected/on-off_icon&16.png');
+}
+.ccMonoIconSave {
+    background-image: url('../icons/cc/selected/save_icon&16.png');
+}
+.ccMonoIconDelete {
+    background-image: url('../icons/cc/selected/doc_delete_icon&16.png');
+}
+.ccMonoIconAdd.Sub.Page {
+    background-image: url('../icons/cc/selected/doc_plus_icon&16.png');
+}
+.ccMonoIconFiles {
+    background-image: url('../icons/cc/selected/clip_icon&16.png');
+}
+.ccMonoIconSubmit.for.Approval {
+    background-image: url('../icons/cc/selected/paper_airplane_icon&16.png');
+}
+.ccMonoIconCancel.Submission {
+    background-image: url('../icons/cc/selected/cancel_icon&16.png');
+}
+.ccMonoIconApprove {
+    background-image: url('../icons/cc/selected/checkmark_icon&16.png');
+}
+.ccMonoIconEdits.Needed {
+    background-image: url('../icons/cc/selected/pencil_icon&16.png');
+}
+@media and (max-width: 1200px) {
+
 }

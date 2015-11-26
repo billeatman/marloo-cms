@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Web Admin - Marloo Calendar Admin</title>
-<link rel="stylesheet" href="assets/dojo-release-1.10.4-src/dijit/themes/claro/claro.css" />
-<link rel="stylesheet" href="assets/dojo-release-1.10.4-src/dojox/calendar/themes/claro/Calendar.css" />
+<title>Marloo Web Admin</title>
+<link rel="stylesheet" href="assets/js/dojo-release-1.10.4-src/dijit/themes/claro/claro.css" />
+<link rel="stylesheet" href="assets/js/dojo-release-1.10.4-src/dojox/calendar/themes/claro/Calendar.css" />
 <link rel="stylesheet" href="assets/css/dojo.css" media="screen" />
 <script>
 	dojoConfig = {
 		async: 1,
-		baseUrl: 'assets/dojo-release-1.10.4-src',
+		baseUrl: 'assets/js/dojo-release-1.10.4-src',
 		packages: [
 			'dojo',
 			'dijit',
@@ -17,7 +17,7 @@
 		]
 	};
 </script>
-<script src="assets/dojo-release-1.10.4-src/dojo/dojo.js"></script>
+<script src="assets/js/dojo-release-1.10.4-src/dojo/dojo.js"></script>
 <script>
 // function for page layout
 require([
@@ -27,12 +27,20 @@ require([
 	'dijit/layout/LayoutContainer',
 	'dijit/layout/ContentPane',
 	'dijit/form/Button',
+	'dijit/Menu',
+	'dijit/MenuItem',
+	'dijit/form/ComboButton',
 	'dijit/TitlePane',
+	'dojo/store/Memory',
+	'dijit/tree/ObjectStoreModel',
+	'dijit/Tree',
+	'dijit/Toolbar',
+	'dojo/_base/array',
 	'dijit/form/Select',
 	'dijit/form/CheckBox',
 	'dojo/domReady!'
 	],
-	function(parser,BorderContainer,TabContainer,LayoutContainer,ContentPane,Button,TitlePane,Select,CheckBox){
+	function(parser,BorderContainer,TabContainer,LayoutContainer,ContentPane,Button,Menu,MenuItem,ComboButton,TitlePane,Memory,ObjectStoreModel,Tree,Toolbar,array,Select,CheckBox){
 		// surrounding container
 		var adminInterface = new BorderContainer({
 			design: 'headline'
@@ -45,38 +53,101 @@ require([
 		adminInterface.addChild(adminHeader);
 		var headerLeft = new ContentPane({
 			region: 'center',
-			content: 'Marloo Calendar Admin',
+			content: 'Marloo Web Admin',
 			id: 'headerLeft'
 		});
 		var headerRight = new ContentPane({
 			region: 'right',
-			id: 'headerRight'
+			id: 'headerRight',
+			content: 'User: caitlin.markert@concordia.edu'
 		});
 		adminHeader.addChild(headerLeft);
 		adminHeader.addChild(headerRight);
-		var homeBtn = new Button({
-			iconClass: '',
+		var browseBtn = new Button({
+			iconClass: 'dijitEditorIcon ccMonoIconBrowse',
 			showLabel: true,
-			label: 'Home',
+			label: 'Browse',
 			onClick: function(){console.log('marloo clicked');}
-		},'homeBtn');
-		var addBtn = new Button({
-			iconClass: '',
-			showLabel: true,
-			label: 'Add Event',
-			onClick: function(){console.log('marloo clicked');}
-		},'addBtn');
+		},'browseBtn');
 		var searchBtn = new Button({
-			iconClass: '',
+			iconClass: 'dijitEditorIcon ccMonoIconSearch',
 			showLabel: true,
 			label: 'Search',
 			onClick: function(){console.log('marloo clicked');}
 		},'searchBtn');
-		headerLeft.addChild(homeBtn);
-		headerLeft.addChild(addBtn);
+		var managementMenu = new Menu({style:"display:none;"});
+			var pagesPendingApproval = new MenuItem({
+				label: "Report - Pages Pending Approval",
+				onClick: function(){console.log('menu');}
+			});
+			var errorLog = new MenuItem({
+				label: "Error Log",
+				onClick: function(){console.log('menu');}
+			});
+			var siteHealth = new MenuItem({
+				label: "Site Health",
+				onClick: function(){console.log('menu');}
+			});
+			var siteTemplates = new MenuItem({
+				label: "Site Templates",
+				onClick: function(){console.log('menu');}
+			});
+			var validateRedirectTable = new MenuItem({
+				label: "Validate Redirect Table",
+				onClick: function(){console.log('menu');}
+			});
+			var cleanUpDatabase = new MenuItem({
+				label: "Clean Up Database",
+				onClick: function(){console.log('menu');}
+			});
+			var userManager = new MenuItem({
+				label: "User Manager",
+				onClick: function(){console.log('menu');}
+			});
+			var visiblePages = new MenuItem({
+				label: "Report - Visible Pages",
+				onClick: function(){console.log('menu');}
+			});
+			var hiddenPages = new MenuItem({
+				label: "Report - Hidden Pages",
+				onClick: function(){console.log('menu');}
+			});
+			var deletedPages = new MenuItem({
+				label: "Report - Deleted Pages",
+				onClick: function(){console.log('menu');}
+			});
+			var appPages = new MenuItem({
+				label: "Report - App Pages",
+				onClick: function(){console.log('menu');}
+			});
+			var userAccess = new MenuItem({
+				label: "Report - User Access",
+				onClick: function(){console.log('menu');}
+			});
+			managementMenu.addChild(pagesPendingApproval);
+			managementMenu.addChild(errorLog);
+			managementMenu.addChild(siteHealth);
+			managementMenu.addChild(siteTemplates);
+			managementMenu.addChild(validateRedirectTable);
+			managementMenu.addChild(cleanUpDatabase);
+			managementMenu.addChild(userManager);
+			managementMenu.addChild(visiblePages);
+			managementMenu.addChild(hiddenPages);
+			managementMenu.addChild(deletedPages);
+			managementMenu.addChild(appPages);
+			managementMenu.addChild(userAccess);
+			managementMenu.startup();
+		var managementBtn = new ComboButton({
+			iconClass: 'dijitEditorIcon ccMonoIconManagement',
+			showLabel: true,
+			label: 'Management',
+			dropDown: managementMenu
+		},'managementBtn');
+		headerLeft.addChild(browseBtn);
 		headerLeft.addChild(searchBtn);
+		headerLeft.addChild(managementBtn);
 		var logoutBtn = new Button({
-			iconClass: '',
+			iconClass: 'dijitEditorIcon ccMonoIconLogOut',
 			showLabel: true,
 			label: 'Log Out',
 			onClick: function(){console.log('log out');}
@@ -89,68 +160,85 @@ require([
 			splitter: true
 		});
 		adminInterface.addChild(adminLeft);
-		var leftCategories = new TitlePane({
-			title: "Calendar Categories:",
-			content: "<input id='category1' /> <label for='category1'>Category 1</label>"
+		var leftSiteTree = new TitlePane({
+			title: "Site Tree"
 		});
-		var category1 = new CheckBox({
-			name: "category1",
-			value: "category1checked",
-			checked: true
-		}, "category1");
-		var leftModifyEvent = new TitlePane({
-			title: "Modify an Event",
-			content: "Hello World"
-		});
-		adminLeft.addChild(leftCategories);
-		adminLeft.addChild(leftModifyEvent);
+		adminLeft.addChild(leftSiteTree);
+			var siteTreeStore = new Memory({
+				data: [
+					{id: 1, name: 'Homepage'},
+						{id: 65, name: 'About', parent: 1},
+							{id: 1934, name: 'Our History', parent: 65},
+							{id: 75, name: 'Fast Facts', parent: 65},
+							{id: 66, name: 'Office of the President and CEO', parent: 65},
+							{id: 81, name: 'Visiting CTX and Austin', parent: 65},
+							{id: 1722, name: 'University-Related Organizations', parent: 65},
+						{id: 118, name: 'Academics', parent: 1},
+						{id: 1162, name: 'Student Life', parent: 1},
+						{id: 4242, name: 'Alumni', parent: 1},
+						{id: 4252, name: 'Giving', parent: 1},
+						{id: 943, name: 'Resources', parent: 1}
+				],
+				getChildren: function(object){
+					return this.query({parent: object.id});
+				}
+			});
+			var siteTreeModel = new ObjectStoreModel({
+				store: siteTreeStore,
+				query: {id: 1}
+			});
+			var siteTree = new Tree({
+				model: siteTreeModel
+			});
+		leftSiteTree.addChild(siteTree);
 		var adminMain = new ContentPane({
 			region: 'center',
 			id: 'adminMain'
 		});
 		adminInterface.addChild(adminMain);
-		var mainHome = new ContentPane({
-			id: 'mainHome',
+		var mainEditWebPage = new TabContainer({
+			id: 'mainEditWebPage',
 			'class': 'mainPane',
-			content: "<h2>Calendar Home</h2><div id='calendarWidget'></div>"
-		});
-		adminMain.addChild(mainHome);
-		var mainAddEvent = new ContentPane({
-			id: 'mainAddEvent',
-			'class': 'mainPane',
-			content: "<h2>Add Event</h2><h3>Event Details</h3>Event Title: <input type='text' /><br />Category: <div id='calEventCategory'></div><br />Event Place: <input type='text' /><br />Date: (dropdown) to (dropdown)<br />Time: (checkbox) This is an all-day event.<br />(time) to (time)<br />Event Details:<br />(TinyMCE)<br /><h3>Event Contact</h3>Contact Person: <input type='text' /><br />Email: <input type='text' /><br />Phone: <input type='text' /><br /><h3>Admin Only</h3>Featured: (checkbox)<br />Approved: (checkbox)<br />"
-		});
-		var calEventCategory = new Select({
-			name: "calEventCategory",
-			options: [
-				{ label: "Academic", value: "Academic" },
-				{ label: "Academic Calendar", value: "Academic Calendar" },
-				{ label: "Admissions", value: "Admissions" },
-				{ label: "Alumni", value: "Alumni" },
-				{ label: "Athletics", value: "Athletics" },
-				{ label: "Campus", value: "Campus" },
-				{ label: "Faculty and Staff", value: "Faculty and Staff" },
-				{ label: "Fine Arts", value: "Fine Arts" },
-				{ label: "General", value: "General" },
-				{ label: "Registrar", value: "Registrar" },
-				{ label: "Student", value: "Student", selected: true },
-				{ label: "Technology", value: "Technology" }
-				/* proposed categories:
-				academic,
-				academic calendar,
-				admissions,
-				alumni,
-				athletics,
-				campus-wide,
-				internal only (faculty / staff),
-				fine arts,
-				student-led,
-				student services
-				*/
-			]
-		},"calEventCategory");
-		adminMain.addChild(mainAddEvent);
-		calEventCategory.placeAt('calEventCategory','first');
+			tabPosition: 'left-h',
+			tabStrip: true
+		},'mainEditWebPage');
+		adminMain.addChild(mainEditWebPage);
+		var editMode = new LayoutContainer({
+			design: 'headline',
+			id: 'editMode',
+			title: 'Edit'
+		},'editMode');
+		mainEditWebPage.addChild(editMode);
+			var editToolbar = new Toolbar({},'editToolbar');
+			
+			editMode.addChild(editToolbar);
+			array.forEach([
+				'Save',
+				'Delete',
+				'Add Sub Page',
+				'Files',
+				'Submit for Approval',
+				'Cancel Submission',
+				'Edits Needed',
+				'Approve'
+				], function(label){
+					var button = new Button({
+						label: label,
+						showLabel: true,
+						iconClass: 'dijitEditorIcon ccMonoIcon'+label
+					});
+					editToolbar.addChild(button);
+				});
+		var previewMode = new ContentPane({
+			title: "Preview",
+			content: "This is the preview tab."
+		},"previewMode");
+		var liveWebMode = new ContentPane({
+			title: "Live Web",
+			content: "This is what's on the live web."
+		},"liveWebMode");
+		mainEditWebPage.addChild(previewMode);
+		mainEditWebPage.addChild(liveWebMode);
 		adminInterface.startup();
 	});
 // function for calendar widget
