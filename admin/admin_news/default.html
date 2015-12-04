@@ -3,12 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <title>Marloo News Admin</title>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="../../assets/js/dojo-release-1.10.4-src/dijit/themes/claro/claro.css" />
 <link rel="stylesheet" href="../../assets/js/dojo-release-1.10.4-src/dojox/calendar/themes/claro/Calendar.css" />
 <link rel="stylesheet" href="../../assets/css/dojo.css" media="screen" />
 <script>
 	dojoConfig = {
 		async: true,
+		parseOnLoad: true,
 		baseUrl: '../../assets/js/dojo-release-1.10.4-src',
 		packages: [
 			'dojo',
@@ -53,13 +56,13 @@ require([
 		adminInterface.addChild(adminHeader);
 		var headerLeft = new ContentPane({
 			region: 'center',
-			content: 'Marloo News Admin',
+			content: '<span id="marloo">Marloo News Admin</span>',
 			id: 'headerLeft'
 		});
 		var headerRight = new ContentPane({
 			region: 'right',
 			id: 'headerRight',
-			content: 'User: caitlin.markert@concordia.edu'
+			content: '<span id="userInfo">User: caitlin.markert@concordia.edu</span>'
 		});
 		adminHeader.addChild(headerLeft);
 		adminHeader.addChild(headerRight);
@@ -91,7 +94,7 @@ require([
 			onClick: function(){console.log('log out');}
 		},'logoutBtn');
 		headerRight.addChild(logoutBtn);
-		var adminLeft = new ContentPane({
+		/*var adminLeft = new ContentPane({
 			region: 'leading',
 			id: 'adminLeft',
 			'class': 'edgePanel',
@@ -101,7 +104,7 @@ require([
 		var leftRecentlyModified = new TitlePane({
 			title: "Recently Modified by Me"
 		});
-		adminLeft.addChild(leftRecentlyModified);
+		adminLeft.addChild(leftRecentlyModified);*/
 		var adminMain = new ContentPane({
 			region: 'center',
 			id: 'adminMain'
@@ -126,22 +129,54 @@ require([
 				});
 				optionsToolbar.addChild(button);
 			});
-		var articleForm = new ContentPane({
-			content: "<p>Article ID: <span id='articleID'>2582</span></p><p><div id='articleTitlePlaceholder'></div></p><p><div id='articleSubTitlePlaceholder'></div></p><p>Article text:</p><div id='tinyMCEplaceholder'><textarea id='tinyMCEtextarea' name='articleBody'></textarea></div><hr /><p><div id='firstNamePlaceholder'></div></p><p><div id='lastNamePlaceholder'></div></p><p><div id='emailAddressPlaceholder'></div></p><hr /><p>Post on: <div id='postDatePlaceholder'></div></p><p>Show on news homepage? <div id='homepageToggle'></div></p><p>Remove from news homepage on: <div id='expireDatePlaceholder'></div></p><p>Is this an urgent alert? <div id='alertToggle'></div></p>"
-		},'articleForm');
-		mainAddArticle.addChild(articleForm);
+			var articleDetails = new LayoutContainer({
+				design: 'sidebar',
+				id: 'articleDetails'
+			},'articleDetails');
+			mainAddArticle.addChild(articleDetails);
+			var articleDetailsLeft = new ContentPane({
+				region: 'left',
+				content: "Article Details"
+			},'articleDetailsLeft');
+			articleDetails.addChild(articleDetailsLeft);
+			var articleDetailsRight = new ContentPane({
+				region: 'center',
+				content: "<p>Article ID: <span id='articleID'>2582</span></p><p><div id='articleTitlePlaceholder'></div></p><p><div id='articleSubTitlePlaceholder'></div></p><p>Article text:</p><div id='tinyMCEplaceholder'><textarea id='tinyMCEtextarea' name='articleBody'></textarea></div>"
+			},"articleDetailsRight");
+			articleDetails.addChild(articleDetailsRight);
 			var articleTitle = new TextBox({
 				name: "articleTitle",
+				id: "articleTitle",
 				value: "",
 				placeholder: "Article Title"
 			},"articleTitle");
 			articleTitle.placeAt("articleTitlePlaceholder","first");
 			var articleSubTitle = new TextBox({
 				name: "articleSubTitle",
+				id: "articleSubTitle",
 				value: "",
 				placeholder: "Article Sub-Title"
 			},"articleSubTitle");
 			articleSubTitle.placeAt("articleSubTitlePlaceholder","first");
+			var tinyMCEeditor = new tinyMCE({
+				selector: "#tinyMCEtextarea",
+				height: 400
+			},"tinyMCEplaceholder");
+			var authorDetails = new LayoutContainer({
+				design: 'sidebar',
+				id: 'authorDetails'
+			},'authorDetails');
+			mainAddArticle.addChild(authorDetails);
+			var authorDetailsLeft = new ContentPane({
+				region: 'left',
+				content: 'Author Details'
+			},"authorDetailsLeft");
+			authorDetails.addChild(authorDetailsLeft);
+			var authorDetailsRight = new ContentPane({
+				region: 'center',
+				content: "<p><div id='firstNamePlaceholder'></div></p><p><div id='lastNamePlaceholder'></div></p><p><div id='emailAddressPlaceholder'></div></p>"
+			},'authorDetailsRight');
+			authorDetails.addChild(authorDetailsRight);
 			var firstName = new TextBox({
 				name: "firstName",
 				value: "",
@@ -160,6 +195,21 @@ require([
 				placeholder: "Author's Email Address"
 			},"emailAddress");
 			emailAddress.placeAt("emailAddressPlaceholder","first");
+			var articleSettings = new LayoutContainer({
+				design: 'sidebar',
+				id: 'articleSettings'
+			},'articleSettings');
+			mainAddArticle.addChild(articleSettings);
+			var articleSettingsLeft = new ContentPane({
+				region: 'left',
+				content: 'Article Settings'
+			},'articleSettingsLeft');
+			articleSettings.addChild(articleSettingsLeft);
+			var articleSettingsRight = new ContentPane({
+				region: 'center',
+				content: "<p>Post on: <div id='postDatePlaceholder'></div></p><p>Show on news homepage? <div id='homepageToggle'></div></p><p>Remove from news homepage on: <div id='expireDatePlaceholder'></div></p><p>Is this an urgent alert? <div id='alertToggle'></div></p>"
+			},'articleSettingsRight');
+			articleSettings.addChild(articleSettingsRight);
 			var postDate = new DateTextBox({
 				name: "postDate",
 				value: new Date()
@@ -170,9 +220,6 @@ require([
 				value: new Date()
 			},"expireDate");
 			expireDate.placeAt("expireDatePlaceholder","first");
-			var tinyMCEeditor = new tinyMCE({
-				selector: "#tinyMCEtextarea"
-			},"tinyMCEplaceholder");
 		adminInterface.startup();
 	});
 </script>

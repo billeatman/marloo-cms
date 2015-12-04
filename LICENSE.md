@@ -1,8 +1,5 @@
 Use of this project and related source code is subject to the terms of multiple licenses. The licenses are appended below.
 
-License for code written by the author:
-============================================
-
 Copyright 2015 Concordia University Texas
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -78,6 +75,27 @@ e) to display the Original Work publicly.
 
 This license is Copyright (C) 2003-2004 Lawrence E. Rosen. All rights reserved. Permission is hereby granted to copy and distribute this license without modification. This license may not be modified without the express written permission of its copyright owner.
 
+============================================
+
+Alegreya Sans SC
+
+Designed by Juan Pablo del Peral for Huerta Tipográfica.
+
+14 Styles by  Juan Pablo del Peral 
+SIL Open Font License, 1.1
+Used via Google Fonts
+
+============================================
+
+Roboto
+
+Christian Robertson
+Apache License, version 2.0
+Used via Google Fonts
+
+This is the normal family, which can be used alongside the Roboto Condensed family and the Roboto Slab family.
+
+Updated January 14 2015: Christian Robertson and the Material Design team unveiled the latest version of Roboto at Google I/O last year, and it is now available from Google Fonts. Existing websites using Roboto via Google Fonts will start using the latest version automatically. If you have installed the fonts on your computer, please download them again and re-install.
 
 ============================================
 
