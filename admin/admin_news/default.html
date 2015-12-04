@@ -29,6 +29,8 @@ require([
 	'dojo/parser',
 	'dijit/registry',
 	'dijit/layout/BorderContainer',
+	'dijit/layout/StackContainer',
+	'dijit/layout/StackController',
 	'dijit/layout/TabContainer',
 	'dijit/layout/LayoutContainer',
 	'dijit/layout/ContentPane',
@@ -43,7 +45,7 @@ require([
 	'dojo-widgets/tinyMCE',
 	'dojo/domReady!'
 	],
-	function(parser,registry,BorderContainer,TabContainer,LayoutContainer,ContentPane,Button,TitlePane,Toolbar,array,TextBox,DateTextBox,Select,CheckBox,tinyMCE){
+	function(parser,registry,BorderContainer,StackContainer,StackController,TabContainer,LayoutContainer,ContentPane,Button,TitlePane,Toolbar,array,TextBox,DateTextBox,Select,CheckBox,tinyMCE){
 		// surrounding container
 		var adminInterface = new BorderContainer({
 			design: 'headline'
@@ -56,7 +58,7 @@ require([
 		adminInterface.addChild(adminHeader);
 		var headerLeft = new ContentPane({
 			region: 'center',
-			content: '<span id="marloo">Marloo News Admin</span>',
+			content: '<span id="marloo">Marloo News Admin</span><span id="headerLeftBtns"></span>',
 			id: 'headerLeft'
 		});
 		var headerRight = new ContentPane({
@@ -66,27 +68,6 @@ require([
 		});
 		adminHeader.addChild(headerLeft);
 		adminHeader.addChild(headerRight);
-		var homeBtn = new Button({
-			iconClass: 'dijitEditorIcon ccMonoIconHome',
-			showLabel: true,
-			label: 'Home',
-			onClick: function(){console.log('marloo clicked');}
-		},'homeBtn');
-		var searchBtn = new Button({
-			iconClass: 'dijitEditorIcon ccMonoIconSearch',
-			showLabel: true,
-			label: 'Search',
-			onClick: function(){console.log('marloo clicked');}
-		},'searchBtn');
-		var addBtn = new Button({
-			iconClass: 'dijitEditorIcon ccMonoIconAdd',
-			showLabel: true,
-			label: 'Add Article',
-			onClick: function(){console.log('marloo clicked');}
-		},'addBtn');
-		headerLeft.addChild(homeBtn);
-		headerLeft.addChild(searchBtn);
-		headerLeft.addChild(addBtn);
 		var logoutBtn = new Button({
 			iconClass: 'dijitEditorIcon ccMonoIconLogOut',
 			showLabel: true,
@@ -94,28 +75,33 @@ require([
 			onClick: function(){console.log('log out');}
 		},'logoutBtn');
 		headerRight.addChild(logoutBtn);
-		/*var adminLeft = new ContentPane({
-			region: 'leading',
-			id: 'adminLeft',
-			'class': 'edgePanel',
-			splitter: true
-		});
-		adminInterface.addChild(adminLeft);
-		var leftRecentlyModified = new TitlePane({
-			title: "Recently Modified by Me"
-		});
-		adminLeft.addChild(leftRecentlyModified);*/
-		var adminMain = new ContentPane({
+		var adminMain = new StackContainer({
 			region: 'center',
 			id: 'adminMain'
-		});
+		},'adminMain');
 		adminInterface.addChild(adminMain);
-		var mainAddArticle = new TitlePane({
-			title: "Add News Article",
-			"style": "overflow-y: auto"
+		var mainHome = new ContentPane({
+			title: "Home",
+			content: "Home!",
+			iconClass: "dijitEditorIcon ccMonoIconHome"
+		},"mainHome");
+		adminMain.addChild(mainHome);
+		var mainSearch = new ContentPane({
+			title: "Search",
+			content: "Search!",
+			iconClass: "dijitEditorIcon ccMonoIconSearch"
+		},"mainSearch");
+		adminMain.addChild(mainSearch);
+		var mainAddArticle = new LayoutContainer({
+			title: "Add Article",
+			iconClass: "dijitEditorIcon ccMonoIconAdd",
+			design: "headline"
 		});
 		adminMain.addChild(mainAddArticle);
-		var optionsToolbar = new Toolbar({'style':'text-align:right'},'optionsToolbar');
+		var optionsToolbar = new Toolbar({
+			'style':'text-align:right',
+			region:"top"
+		},'optionsToolbar');
 		mainAddArticle.addChild(optionsToolbar);
 			array.forEach([
 			'Save',
@@ -129,11 +115,16 @@ require([
 				});
 				optionsToolbar.addChild(button);
 			});
+			var articleForm = new ContentPane({
+				region: "center",
+				content: " "
+			},"articleForm");
+			mainAddArticle.addChild(articleForm);
 			var articleDetails = new LayoutContainer({
 				design: 'sidebar',
 				id: 'articleDetails'
 			},'articleDetails');
-			mainAddArticle.addChild(articleDetails);
+			articleForm.addChild(articleDetails);
 			var articleDetailsLeft = new ContentPane({
 				region: 'left',
 				content: "Article Details"
@@ -166,7 +157,7 @@ require([
 				design: 'sidebar',
 				id: 'authorDetails'
 			},'authorDetails');
-			mainAddArticle.addChild(authorDetails);
+			articleForm.addChild(authorDetails);
 			var authorDetailsLeft = new ContentPane({
 				region: 'left',
 				content: 'Author Details'
@@ -199,7 +190,7 @@ require([
 				design: 'sidebar',
 				id: 'articleSettings'
 			},'articleSettings');
-			mainAddArticle.addChild(articleSettings);
+			articleForm.addChild(articleSettings);
 			var articleSettingsLeft = new ContentPane({
 				region: 'left',
 				content: 'Article Settings'
@@ -220,6 +211,10 @@ require([
 				value: new Date()
 			},"expireDate");
 			expireDate.placeAt("expireDatePlaceholder","first");
+			var controller = new StackController({
+				containerId: "adminMain"
+			},"controller");
+			controller.placeAt("headerLeftBtns","first");
 		adminInterface.startup();
 	});
 </script>
