@@ -92,18 +92,21 @@ NOTE: The background color of these icons have been modified to fit Marloo brand
 
 ============================================
 
-imRichEditor
+TinyMCE 4 Widget for Dojo 1.10+
 
-imRichEditor - A Dojo Widget that integrates TinyMCE
-@author Les Green
-original: http://disgruntleddevs.wordpress.com/2009/02/10/tinymce-and-dojo/
-Copyright (C) 2009 Intriguing Minds, Inc.
-Used with permission.
+Authors: Billy Eatman (billeatman@hotmail.com) and Caitlin Markert (caitymarkert@gmail.com)
 
-Demo and Documentation can be found at:   
-http://www.grasshopperpebbles.com
+Copyright 2015 Concordia University Texas
 
-NOTE: In Marloo, this widget has been modified and is referred to as a module called tinyMCE. It is located in /assets/js/dojo-widgets.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 ============================================
 

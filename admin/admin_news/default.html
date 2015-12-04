@@ -108,7 +108,8 @@ require([
 		});
 		adminInterface.addChild(adminMain);
 		var mainAddArticle = new TitlePane({
-			title: "Add News Article"
+			title: "Add News Article",
+			"style": "overflow-y: auto"
 		});
 		adminMain.addChild(mainAddArticle);
 		var optionsToolbar = new Toolbar({'style':'text-align:right'},'optionsToolbar');
