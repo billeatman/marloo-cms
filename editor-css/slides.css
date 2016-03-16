@@ -1,0 +1,11 @@
+img {
+	max-width: 200px !important;
+}
+a:before {
+	content:"start of link";
+	display: inline;
+}
+a:after {
+	content:"end of link";
+	display: inline;
+}
