@@ -74,4 +74,4 @@ INSERT INTO [mrl_pageGroupMember]
 INSERT INTO [mrl_template]
            ([templateName],[templateDesc],[cfcName],[author],[disabled],[tinyMCEWidth],[tinyMCEStyleSheet])
      VALUES
-           ('leotest','default test template','leotest','william eatman','F','500','500')
+           ('marlootest','default test template','marlootest','william eatman','F','500','500')
