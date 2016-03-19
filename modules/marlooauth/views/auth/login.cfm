@@ -1,20 +1,36 @@
- <div class="container">
+<div class="container">
 	<cfif structKeyExists(prc,"loginErrorStruct")>
 		<cfoutput>
 		<h2>#prc.loginErrorStruct.message#</h2>
 		</cfoutput>
 	</cfif>
-      <form class="form-signin" action="index.cfm" method="post">
-        <h2 class="form-signin-heading">Marloo Web Admin</h2>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input name="j_username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input name="j_password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-    </div> <!-- /container -->
-</body>
-</html>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1 id="login-logo" class="text-center">Marloo CMS</h1>
+			<div id="login-panel" class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title">Log in to Marloo CMS</h2>
+				</div> <!-- /.panel-header -->
+			<form id="login-form" class="form-horizontal" action="index.cfm" method="post">
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="inputEmail" class="col-sm-3 text-right">Username: </label>
+						<div class="col-sm-8">
+							<input id="inputEmail" type="email" class="form-control" name="j_username" required />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword" class="col-sm-3 text-right">Password: </label>
+						<div class="col-sm-8">
+							<input id="inputPassword" type="password" class="form-control" name="j_password" required />
+						</div>
+					</div>
+				</div> <!-- /.panel-body -->
+				<div class="panel-footer text-center">
+					<button class="btn btn-primary" type="submit">Log In!</button>
+				</div> <!-- /.panel-footer -->
+			</form>
+			</div> <!-- /.panel -->
+		</div> <!-- /12 -->
+	</div> <!-- /.row -->
+</div> <!-- /.container -->

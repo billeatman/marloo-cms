@@ -1,0 +1,116 @@
+/* COLOR REFERENCE */
+/*
+yellow -         rgb(248,223,86)
+dark dark blue - rgb(25,50,108)
+dark blue -      rgb(43,77,158)
+light blue -     rgb(218,228,251)
+gray -           rgb(150,150,150)
+light gray -     rgb(200,200,200) 
+*/
+
+
+/* accessibility styling */
+:focus, :active, :hover {
+	outline: 0 !important;
+}
+
+/* basics */
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+
+/* utility classes */
+.margin-0 {
+	margin: 0 !important;
+}
+.margin-xs {
+	margin: 2px !important;
+}
+.margin-sm {
+	margin: 4px !important;
+}
+.margin-md {
+	margin: 6px !important;
+}
+.margin-lg {
+	margin: 8px !important;
+}
+.margin-xl {
+	margin: 10px !important;
+}
+.padding-0 {
+	padding: 0 !important;
+}
+.padding-xs {
+	padding: 2px !important;
+}
+.padding-sm {
+	padding: 4px !important;
+}
+.padding-md {
+	padding: 6px !important;
+}
+.padding-lg {
+	padding: 8px !important;
+}
+.padding-xl {
+	padding: 10px !important;
+}
+
+/* marloo theme */
+
+/* login */
+#login-logo {
+	margin-top: 10%;
+}
+#login-panel {
+	margin-top: 5%;
+}
+
+/* navbar */
+.navbar.navbar-marloo {
+	background-color: rgb(0,0,0);
+}
+.navbar.navbar-marloo .navbar-brand {
+	font-size: 1.4em;
+	color: rgb(218,228,251);
+}
+.navbar.navbar-marloo .navbar-brand span {
+	color: rgb(150,150,150);
+}
+.navbar.navbar-marloo a {
+	color: rgb(200,200,200);
+	font-size: 1.05em;
+}
+.navbar.navbar-marloo a:hover,
+.navbar.navbar-marloo a:active
+.navbar.navbar-marloo a:focus {
+	background-color: rgb(25,50,108);
+}
+.navbar.navbar-marloo a i,
+.navbar.navbar-marloo a span.caret {
+	color: rgb(248,223,86);
+}
+.navbar.navbar-marloo a i{
+	font-size: 1.3em;
+	margin-right: .15em;
+}
+
+/* left sidebar */
+.side-left {
+	background-color: rgb(25,50,108);
+	padding: 2em 0;
+	min-height: 100%;
+}
+.side-left .panel-group .panel {
+	border-radius: 0;
+}
+.side-left .panel-group .panel.panel-left-marloo {
+	border: 0;
+}
+.panel-group .panel.panel-left-marloo .panel-heading,
+.panel-group .panel.panel-left-marloo .panel-footer {
+	background-color: rgb(43,77,158);
+	color: rgb(218,228,251);
+}
