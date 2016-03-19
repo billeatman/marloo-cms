@@ -1,34 +1,22 @@
-/**
-* A normal ColdBox Event Handler
-*/
-<cfcomponent>
+component extends="coldbox.system.EventHandler"{
+	property name="orm" inject="entityservice" setter=false getter=false;
 
-	<cffunction name="index">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
+	function index(event,rc,prc){
+		event.setView("home/index");
+	}
 
-		<cfset event.setView( "home/index" )>
+	function login(event,rc,prc){
+		event.setView("auth/login");		
+	}
 
-	</cffunction>
+	function logout(event,rc,prc){
+		event.setView("auth/login");
+		structClear(session);
+		cflogout();
+		setNextEvent(event: "marloo-auth:auth.login");
+	}
 
-	<cffunction name="login">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-		
-		<cfset event.setView( "auth/login" )>
-	</cffunction>
-
-	<cffunction name="logout">
-		<cfargument name="event">
-		<cfargument name="rc">
-		<cfargument name="prc">
-		
-		<cfset StructClear(session)>
-		<cflogout>
-		
-		<cfset setNextEvent(event: "marloo-auth:auth.login")>	
-	</cffunction>
-
-</cfcomponent>
+	function pwreset(event,rc,prc){
+		event.setView("auth/pwreset")
+	}
+}

@@ -18,8 +18,6 @@ component accessors=true {
 		return error.getErrorStruct();
 	}
 
-
-
 	public boolean function authenticate(string password, string username){
 		var authSteps = variables.config.authSteps; 
 		var step = "";
@@ -27,15 +25,22 @@ component accessors=true {
 		for (step in authSteps) {
 			switch (lcase(trim(step))) {
 				case 'hash':
-					// Check password
-					if (local.user.getPwHash() != ''){
-						if (NOT bcrypt.checkPassword(arguments.password, local.user.getPwHash())) {
+					// Check for temp clear text password
+					if (!len(local.user.getPwHash()) && len(local.user.getPwTemp())) {
+						if (password == local.user.getPwTemp()){
+							error.setError(message: "RESET PASSWORD", code: "7");
+							break;
+						} else {
 							error.setError(message: "INCORRECT PASSWORD", code: "1");
 							break;
 						}
-					} else {
-						error.setError(message: "INVALID HASH");
-					}	
+					}
+						
+					// Check for hashed password (default)
+					if (NOT bcrypt.checkPassword(arguments.password, local.user.getPwHash())) {
+						error.setError(message: "INCORRECT PASSWORD", code: "1");
+						break;
+					}
 				break;
 				case 'user':
 					// Check if user exists
