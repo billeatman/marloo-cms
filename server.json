@@ -1,0 +1,15 @@
+{
+    "web":{
+        "rewrites":{
+            "enable":true,
+            "enabled":true
+        },
+        "SSL":{
+            "enable":true
+        },
+        "http":{
+            "port":"8080"
+        }
+    },
+    "rewritesEnabled":true
+}

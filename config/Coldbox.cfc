@@ -6,7 +6,7 @@
 		// coldbox directives
 		coldbox = {
 			//Application Setup
-			appName 				= "Your app name here",
+			appName 				= "Marloo CMS",
 			eventName 				= "event",
 
 			//Development Settings
@@ -34,9 +34,10 @@
 			controllerDecorator			= "",
 
 			//Error/Exception Handling
-			exceptionHandler		= "main.onException",
+//			exceptionHandler		= "main.onException",
+			exceptionHandler		= "",
 			onInvalidEvent			= "",
-			customErrorTemplate		= "",
+			customErrorTemplate		= "/coldbox/system/includes/BugReport.cfm",
 
 			//Application Aspects
 			handlerCaching 			= false,
@@ -44,9 +45,41 @@
 			proxyReturnCollection 	= false
 		};
 
+		//ORM
+		orm = {
+			injection = {
+				enabled = true 
+			} 
+		};
 		// custom settings
 		settings = {
+			marlooauth = {
+				settings = {
+					// list your ldap servers here
+					// simple dev password 
+					simplePassword = "pass",
+					// lock account after # of attempts
+					invalidAttempts = 3, 
+					/* steps for authentication.  Order matters.
 
+					choices are:  
+						groups - checks that the login is a member of a security group
+						lockout - checks that a user isn't locked out			
+						ldap - checks a login against ldap servers
+						simple - DEV ONLY - check a login against a simple password
+						crypt - checks password against a db hash
+
+					suggested steps:
+						steps = ["groups", "lockout", "ldap"]
+
+					dev steps:
+						steps = ["simple"]
+
+					*/		
+					//authSteps = ["groups","lockout","ldap"];
+					authSteps = ['email', 'user', 'hash']
+				}
+			}
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.
@@ -125,14 +158,12 @@
 			layoutsLocation  = "layouts",
 			modelsLocation 	 = "models",
 			eventAction 	 = "index"
-		};
+		};*/
 
 		//Datasources
 		datasources = {
-			mysite   = {name="mySite", dbType="mysql", username="root", password="pass"},
-			blog_dsn = {name="myBlog", dbType="oracle", username="root", password="pass"}
+			marloo = {name="marloo-cms", dbType="mssql", username="", password=""}
 		};
-		*/
 
 	}
 

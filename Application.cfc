@@ -10,18 +10,29 @@ component{
 	this.sessionManagement = true;
 	this.sessionTimeout = createTimeSpan(0,0,30,0);
 	this.setClientCookies = true;
+	this.datasource = "marloo-cms";
+	this.ormEnabled = true;
+	this.ormSettings = {
+		cfclocation = ['models', 'modules/marlooauth/models'],
+	    dbcreate    = "none",
+	    logSQL		= true,
+	    flushAtRequestEnd 	= false,
+	    autoManageSession 	= false,
+	    eventHandling   	= true,
+	    eventHandler      	= "cborm.models.EventHandler"
+	};
 
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
 	COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
 	// The web server mapping to this application. Used for remote purposes or static purposes
-	COLDBOX_APP_MAPPING   = "";
+	COLDBOX_APP_MAPPING   = "/";
 	// COLDBOX PROPERTIES
 	COLDBOX_CONFIG_FILE 	 = "";
 	// COLDBOX APPLICATION KEY OVERRIDE
 	COLDBOX_APP_KEY 		 = "";
 	// JAVA INTEGRATION: JUST DROP JARS IN THE LIB FOLDER
 	// You can add more paths or change the reload flag as well.
-	this.javaSettings = { loadPaths = [ "lib" ], reloadOnChange = false };
+	this.javaSettings = { loadPaths = [ "lib" ], reloadOnChange = true };
 
 	// application start
 	public boolean function onApplicationStart(){
@@ -33,8 +44,10 @@ component{
 	// request start
 	public boolean function onRequestStart(String targetPage){
 		// Process ColdBox Request
+	//	ormreload();
+	//	ormflush();
 		application.cbBootstrap.onRequestStart( arguments.targetPage );
-
+	
 		return true;
 	}
 
@@ -49,5 +62,4 @@ component{
 	public boolean function onMissingTemplate( template ){
 		return application.cbBootstrap.onMissingTemplate( argumentCollection=arguments );
 	}
-
 }
