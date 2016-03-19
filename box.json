@@ -45,7 +45,8 @@
         "coldbox":"4.1.0+00002",
         "BCrypt":"2.0.0.0000",
         "cbjavaloader":"1.1.0+00002",
-        "cborm":"1.2.1+00004"
+        "cborm":"1.2.1+00004",
+        "cbmessagebox":"2.1.0+00027"
     },
     "devDependencies":{
         
@@ -54,7 +55,8 @@
         "coldbox":"coldbox",
         "BCrypt":"modules\\BCrypt",
         "cbjavaloader":"modules\\cbjavaloader",
-        "cborm":"modules\\cborm"
+        "cborm":"modules\\cborm",
+        "cbmessagebox":"modules\\cbmessagebox"
     },
     "ignore":[
         "**/.*",

@@ -9,6 +9,7 @@ component entityName="marlooUser" persistent="true" table="mrl_securityUsers" ex
 	property name="firstname" ormtype="string";
 	property name="lastname" ormtype="string";
 	property name="pwHash" ormtype="string";
+	property name="pwTemp" ormtype="string";
 	property name="pwHashDate" ormtype="timestamp" setter="false";
 	property name="active" ormtype="string";
 	property name="createdDate" ormtype="timestamp" setter="false";

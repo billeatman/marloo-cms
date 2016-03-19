@@ -51,8 +51,17 @@
 				enabled = true 
 			} 
 		};
+
+		messagebox = {
+		    // The default HTMl template for emitting the messages
+		    template        = "#appMapping#/views/MessageBox.cfm",
+		    // Override the internal styles, true to override
+		    styleOverride   = false
+		};
+
 		// custom settings
 		settings = {
+
 			marlooauth = {
 				settings = {
 					// list your ldap servers here
