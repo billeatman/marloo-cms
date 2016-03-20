@@ -140,6 +140,16 @@
 			}
 		];
 
+		//Register Layouts
+		layouts = [
+			// Login page has its own layout
+			{ name = "Login",
+		 	  file = "Login.cfm",
+			  views = "auth/login",
+			  folders = "tags"
+			}
+		];
+
 		/*
 		// flash scope configuration
 		flash = {
