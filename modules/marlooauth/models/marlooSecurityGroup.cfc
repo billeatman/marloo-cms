@@ -12,5 +12,5 @@ component entityName="marlooSecurityGroup" persistent="true" table="mrl_security
 
 	property name="users" fieldtype="many-to-many"
 	cfc="marlooUser" type="array" singularname="user" orderby="login asc"
-	linktable="securityGroupMember" fkcolumn="groupName" inversejoincolumn="login" inverse="true";
+	linktable="mrl_securityGroupMember" fkcolumn="groupName" inversejoincolumn="login" inverse="true";
 }

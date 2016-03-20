@@ -1,6 +1,6 @@
 component entityName="marlooUser" persistent="true" table="mrl_securityUsers" extends="cborm.models.ActiveEntity" {
 	// Wirebox
-	// property name="bcrypt" inject="bcrypt@bcrypt" setter=false getter=true;
+	property name="bcrypt" inject="bcrypt@bcrypt" persistent="false" setter=false getter=false;
 
 	// Primary Key
 	property name="login" fieldtype="id" column="login" generator="assigned";
@@ -8,7 +8,7 @@ component entityName="marlooUser" persistent="true" table="mrl_securityUsers" ex
 	// Properties
 	property name="firstname" ormtype="string";
 	property name="lastname" ormtype="string";
-	property name="pwHash" ormtype="string";
+	property name="pwHash" ormtype="string" setter="false";
 	property name="pwTemp" ormtype="string";
 	property name="pwHashDate" ormtype="timestamp" setter="false";
 	property name="active" ormtype="string";
@@ -16,11 +16,11 @@ component entityName="marlooUser" persistent="true" table="mrl_securityUsers" ex
 
 	property name="securityGroups" fieldtype="many-to-many" 
 		cfc="marlooSecurityGroup" type="array" singularname="securityGroup" orderby="groupName asc"
-		linktable="securityGroupMember" fkcolumn="login" inversejoincolumn="groupName";
+		linktable="mrl_securityGroupMember" fkcolumn="login" inversejoincolumn="groupName";
 
 	// constraints
 	this.constraints = {
-		"login" = {required = true, type = "email", size = "5..50"},
+		login = {required = true, type = "email", size = "5..50"},
 		pwhash = {required = false},
 		active = {required = true},
 		createdDate = {required = true, type='date'},
@@ -30,9 +30,12 @@ component entityName="marlooUser" persistent="true" table="mrl_securityUsers" ex
 	}
 
 	function init(){
+		super.init();
+		
 		variables.securityGroups = [];
 		variables.login = "";
-		variables.pwhash = "";
+		variables.pwHash = "";
+		variables.pwHashDate = "";
 		variables.active = false;
 
 		return this;
@@ -53,10 +56,17 @@ component entityName="marlooUser" persistent="true" table="mrl_securityUsers" ex
 		return false;
 	}
 
-	void function setPassword(required string password) {
+	boolean function setPassword(required string password) {
+		variables.pwHash = bcrypt.hashPassword(arguments.password);
+		variables.pwHashDate = now();
 
+		// Set pwTemp to NULL
+		structDelete(variables, pwTemp);
+		
+		return true;
 	}
 
-
-
+	boolean function checkPassword(required string password) {
+		return bcrypt.checkPassword(candidate: arguments.password, bCryptHash: variables.pwHash);
+	}
 }

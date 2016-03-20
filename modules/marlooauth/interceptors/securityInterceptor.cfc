@@ -67,8 +67,9 @@
 
 	<cfif arguments.reset EQ true>
 		<cfset session.marlooauth.reset = true>
+	<cfelse>
+		<cfset session.marlooauth.reset = false>
 	</cfif>
-	
 </cffunction>
 
 
