@@ -44,8 +44,8 @@ component{
 	// request start
 	public boolean function onRequestStart(String targetPage){
 		// Process ColdBox Request
-	//	ormreload();
-	//	ormflush();
+		// ormreload();
+		// ormflush();
 		application.cbBootstrap.onRequestStart( arguments.targetPage );
 	
 		return true;
