@@ -1,13 +1,12 @@
 component accessors=true {
 	property name="config" inject="coldbox:moduleSettings:marlooauth" setter=false getter=false;
 	property name="error" inject="error@marlooauth" setter=false getter=false;
-//	property name="securityGroup" inject="user@marloo-auth" setter=false getter=false;
 	property name="throwErrors" type="boolean";
 	property name="bcrypt" inject="bcrypt@bcrypt" setter=false getter=false;
 	property name="dsn" inject="coldbox:datasource:marloo" setter=false;
 	property name="ORMService" inject="entityservice";
 	
-	public auth function init(){
+	function init(){
 		// set defaults until Adobe fixes defaults bug!!!
 		setThrowErrors(false);
 		return this;
@@ -18,7 +17,7 @@ component accessors=true {
 		return error.getErrorStruct();
 	}
 
-	public boolean function authenticate(string password, string username){
+	public boolean function authenticate(string username, string password){
 		var authSteps = variables.config.authSteps; 
 		var step = "";
 
@@ -37,7 +36,7 @@ component accessors=true {
 					}
 						
 					// Check for hashed password (default)
-					if (NOT bcrypt.checkPassword(arguments.password, local.user.getPwHash())) {
+					if (!local.user.checkPassword(arguments.password)) {
 						error.setError(message: "INCORRECT PASSWORD", code: "1");
 						break;
 					}

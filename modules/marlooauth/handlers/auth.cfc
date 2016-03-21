@@ -26,7 +26,7 @@ component extends="coldbox.system.EventHandler"{
 			}
 
 			// Get user entity
-			var user = ormUser.get(session.marlooauth.user.login);
+			var user = ormUser.get(session.marlooauth.user.username);
 
 			// Bail out if the user is not found
 			if (isNull(user)){
