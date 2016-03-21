@@ -12,20 +12,21 @@
 	<!--- login check --->
 	<cflogin>
 		<!--- authenticate user based on ModuleConfig --->
-		<cfset auth = getInstance("auth@marlooauth")>
+		<cfset auth = getInstance("authenticate@marlooauth")>
 
 		<cfif isDefined("cflogin")>
 			<!--- authenticate the user --->
 			<cfset authenticated = auth.authenticate(
-				password: cflogin.password, 
-				username: cflogin.name)>
+				username: cflogin.name,
+				password: cflogin.password)>
 			<cfif authenticated>
-				<cfset doLogin()>
+				<cfset getInstance("authorize@marlooauth").login(username: cflogin.name, password: cflogin.password)>
 				<cfset setNextEvent(event: getSetting('defaultEvent'))>
 			<cfelse>
 				<!--- Set the reset flag and log in for pwreset --->
 				<cfif auth.getErrorStruct().code EQ 7>
-					<cfset doLogin(reset: true)>
+					<cfset getInstance("authorize@marlooauth").login(username: cflogin.name, password: cflogin.password)>
+					<cfset session.marlooauth.reset = true>
 					<cfset variables.messagebox.info(auth.getErrorStruct().message)>		
 					<cfset event.overrideEvent("marlooauth:auth.pwreset")>
 					<cfreturn>
@@ -39,39 +40,11 @@
 		<cfset event.overrideEvent("marlooauth:auth.login")>
 	</cflogin>
 
-	<cfif event.getCurrentEvent() NEQ "marlooauth:auth.logout">	
-		<!--- Force a user to reset a password after login --->	
-		<cfif IsUserLoggedIn() >
-			<cfif session.marlooauth.reset EQ true>
-				<cfset event.overrideEvent("marlooauth:auth.pwreset")>		
-			</cfif>
-		</cfif>
+	<!--- Force a user to reset a password after login --->	
+	<cfif IsUserLoggedIn() AND session.marlooauth.reset AND event.getCurrentEvent() NEQ "marlooauth:auth.logout">	
+		<cfset event.overrideEvent("marlooauth:auth.pwreset")>		
 	</cfif>
-	
+
 </cffunction>
-
-<cffunction name="doLogin" access="private" output="false" returnType="void">
-	<cfargument name="reset" required="false" type="boolean" default="false">
-	
-	<cfloginuser name="#cflogin.name#" password="#cflogin.password#" roles=""/> 
-	<cfset sessionRotate()>
-
-	<!--- Build auth session --->
-	<cfset session.marlooauth = structNew()>
-	<cfset session.marlooauth.editkeys = structNew()>
-	<cfset session.marlooauth.user = {
-		firstname = 'REWORK',
-		lastname = 'REWORK',
-		login = cflogin.name
-	}>
-
-	<cfif arguments.reset EQ true>
-		<cfset session.marlooauth.reset = true>
-	<cfelse>
-		<cfset session.marlooauth.reset = false>
-	</cfif>
-</cffunction>
-
-
 
 </cfcomponent>
