@@ -48,7 +48,7 @@ component{
 	public boolean function onRequestStart(String targetPage){
 		// Process ColdBox Request
 
-		ormreload();
+	//	ormreload();
 		sleep(250);
 	//	ormflush();
 

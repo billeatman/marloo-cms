@@ -1,6 +1,6 @@
 /* COLOR REFERENCE */
 /*
-yellow -         rgb(248,223,86)
+yellow -         rgb(255,255,153)
 dark dark blue - rgb(25,50,108)
 dark blue -      rgb(43,77,158)
 light blue -     rgb(218,228,251)
@@ -18,6 +18,9 @@ light gray -     rgb(200,200,200)
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+}
+h1 {
+	margin-top: 0;
 }
 
 /* utility classes */
@@ -79,38 +82,80 @@ body {
 .navbar.navbar-marloo .navbar-brand span {
 	color: rgb(150,150,150);
 }
-.navbar.navbar-marloo a {
+.navbar.navbar-marloo ul.nav > li > a {
 	color: rgb(200,200,200);
-	font-size: 1.05em;
+	font-size: 1em;
+	height: 50px;
 }
-.navbar.navbar-marloo a:hover,
-.navbar.navbar-marloo a:active
-.navbar.navbar-marloo a:focus {
+.navbar.navbar-marloo ul.nav > li > a:hover,
+.navbar.navbar-marloo ul.nav > li > a:active,
+.navbar.navbar-marloo ul.nav > li > a:focus,
+.navbar.navbar-marloo ul.nav > li.open > a {
 	background-color: rgb(25,50,108);
 }
-.navbar.navbar-marloo a i,
-.navbar.navbar-marloo a span.caret {
-	color: rgb(248,223,86);
+.navbar.navbar-marloo ul.nav > li > a > i,
+.navbar.navbar-marloo ul.nav > li > a > span.caret {
+	color: rgb(218,228,251);
 }
-.navbar.navbar-marloo a i{
-	font-size: 1.3em;
-	margin-right: .15em;
+.navbar.navbar-marloo ul.dropdown-menu > li > a > i,
+.navbar.navbar-marloo ul.dropdown-menu > li > a > span.caret {
+	color: rgb(25,50,108);
+}
+.navbar.navbar-marloo ul.dropdown-menu > li > a:focus,
+.navbar.navbar-marloo ul.dropdown-menu > li > a:hover {
+	background-color: rgb(255,255,153);
+}
+.navbar.navbar-marloo a i {
+	font-size: 16px;
+	display: inline-block;
+	height: 22px;
+	width: 18px;
+	text-align: center;
+}
+.navbar.navbar-marloo a i.fa {
 }
 
-/* left sidebar */
-.side-left {
+/* left sidebar site tree */
+.side-tree {
 	background-color: rgb(25,50,108);
-	padding: 2em 0;
+	padding: 20px 0;
 	min-height: 100%;
+	margin-top: -20px;
+	position: absolute;
 }
-.side-left .panel-group .panel {
-	border-radius: 0;
+@media only screen and (max-width: 786px) {
+	.side-tree {
+		position: relative;
+	}
 }
-.side-left .panel-group .panel.panel-left-marloo {
+.side-tree * {
+	border-radius: 0 !important;
+}
+.side-tree .panel-group .panel.panel-left-marloo {
 	border: 0;
 }
 .panel-group .panel.panel-left-marloo .panel-heading,
 .panel-group .panel.panel-left-marloo .panel-footer {
 	background-color: rgb(43,77,158);
 	color: rgb(218,228,251);
+	text-transform: uppercase;
+}
+.panel-group .panel.panel-left-marloo .panel-title {
+	font-size: .85em;
+}
+.side-tree ul.list-group {
+	margin-bottom: 0;
+}
+
+/* user manager */
+#userman-nav-panel .btn-group-vertical {
+	display: block;
+}
+#userman-nav-panel .btn-group-vertical .btn {
+	text-align: left;
+}
+#userman-nav-panel .btn-group-vertical .btn i {
+	display: inline-block;
+	width: 28px;
+	font-size: .9em;
 }
