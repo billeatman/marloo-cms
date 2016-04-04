@@ -20,7 +20,7 @@
 			<h1>Users</h1>
 		</div> <!--- /8 --->
 		<div class='col-md-4 text-right'>
-			<cfoutput><a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser')#" class='btn btn-primary'><i class='typcn typcn-user-add-outline'></i> Add a User</a></cfoutput>
+			<cfoutput><a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser')#" class='btn btn-mrl-primary'><i class='typcn typcn-user-add-outline'></i> Add a User</a></cfoutput>
 		</div> <!--- /4 --->
 	</div> <!--- /row --->
 	<cfset user = prc.users>
@@ -38,8 +38,8 @@
 			<tr>
 				<cfoutput>
 				<td>
-					<a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser', queryString='login=#user.login#')#" class='btn btn-xs btn-default'><i class='ti ti-pencil'></i> Edit</a>
-					<a href="#event.buildLink(linkTo: 'marlooauth:userman.deleteuser', queryString='login=#user.login#')#" class='btn btn-xs btn-default confirm'><i class='ti ti-trash'></i> Delete</a>
+					<a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser', queryString='login=#user.login#')#" class='btn btn-xs btn-mrl'><i class='ti ti-pencil'></i> Edit</a>
+					<a href="#event.buildLink(linkTo: 'marlooauth:userman.deleteuser', queryString='login=#user.login#')#" class='btn btn-xs btn-mrl confirm'><i class='ti ti-trash'></i> Delete</a>
 				</td>
 				<td>#user.login#</td>
 				<td>#dateFormat(user.createdDate)#</td>
