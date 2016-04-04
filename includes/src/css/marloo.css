@@ -1,5 +1,6 @@
 /* COLOR REFERENCE */
 /*
+light black -    rgb(40,40,40)
 yellow -         rgb(255,255,153)
 dark dark blue - rgb(25,50,108)
 dark blue -      rgb(43,77,158)
@@ -8,6 +9,7 @@ gray -           rgb(150,150,150)
 light gray -     rgb(200,200,200) 
 */
 
+@import url(https://fonts.googleapis.com/css?family=Sintony:400,700);
 
 /* accessibility styling */
 :focus, :active, :hover {
@@ -18,6 +20,10 @@ light gray -     rgb(200,200,200)
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+}
+h1,h2,h3,h4,h5,h6, 
+.navbar-mrl, thead, *[class^='btn-mrl'], .btn {
+	font-family: 'Sintony', sans-serif;
 }
 h1 {
 	margin-top: 0;
@@ -63,6 +69,46 @@ h1 {
 
 /* marloo theme */
 
+/* buttons */
+.btn {
+	border-radius: 3px;
+}
+.btn.btn-mrl {
+	color: rgb(40,40,40);
+	border: 1px solid rgb(218,228,251)
+}
+.btn.btn-mrl-line {
+
+}
+.btn.btn-mrl-primary {
+	background-color: rgb(43,77,158);
+	color: rgb(255,255,255);
+}
+.btn.btn-mrl-primary:hover,
+.btn.btn-mrl-primary-line {
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(43,77,158);
+	color: rgb(43,77,158);
+}
+.btn.btn-mrl-success {
+
+}
+.btn.btn-mrl-success-line {
+
+}
+.btn.btn-mrl-warning {
+
+}
+.btn.btn-mrl-warning-line {
+
+}
+.btn.btn-mrl-danger {
+
+}
+.btn.btn-mrl-danger-line {
+
+}
+
 /* login */
 #login-logo {
 	margin-top: 16%;
@@ -72,47 +118,64 @@ h1 {
 }
 
 /* navbar */
-.navbar.navbar-marloo {
-	background-color: rgb(0,0,0);
+.navbar.navbar-mrl {
+	background-color: rgb(40,40,40);
+	z-index: 100;
+	box-shadow: 0 4px 12px 1px rgba(0,0,0,.25);
 }
-.navbar.navbar-marloo .navbar-brand {
-	font-size: 1.4em;
+.navbar.navbar-mrl,
+.navbar.navbar-mrl .container-fluid,
+.navbar.navbar-mrl .navbar-header,
+.navbar.navbar-mrl .navbar-brand,
+.navbar.navbar-mrl ul.nav > li > a {
+	height: 42px;
+	line-height: 42px;
+	min-height: 0;
+}
+.navbar.navbar-mrl .navbar-brand {
 	color: rgb(218,228,251);
+	padding: 0 .5em;
+	line-height: 42px;
+	vertical-align: middle;
+	padding-right: 1.5em;
 }
-.navbar.navbar-marloo .navbar-brand span {
+.navbar.navbar-mrl .navbar-brand span {
 	color: rgb(150,150,150);
 }
-.navbar.navbar-marloo ul.nav > li > a {
-	color: rgb(200,200,200);
-	font-size: 1em;
-	height: 50px;
+.navbar.navbar-mrl ul.nav > li > a {
+	color: rgb(255,255,255);
+	background-color: rgb(65,65,65);
+	font-size: .9em;
+	padding: 0 1em;
+	vertical-align: middle;
+	margin-left: 2px;
 }
-.navbar.navbar-marloo ul.nav > li > a:hover,
-.navbar.navbar-marloo ul.nav > li > a:active,
-.navbar.navbar-marloo ul.nav > li > a:focus,
-.navbar.navbar-marloo ul.nav > li.open > a {
+.navbar.navbar-mrl ul.nav > li > a:hover,
+.navbar.navbar-mrl ul.nav > li > a:active,
+.navbar.navbar-mrl ul.nav > li > a:focus,
+.navbar.navbar-mrl ul.nav > li.open > a {
 	background-color: rgb(25,50,108);
 }
-.navbar.navbar-marloo ul.nav > li > a > i,
-.navbar.navbar-marloo ul.nav > li > a > span.caret {
-	color: rgb(218,228,251);
+.navbar.navbar-mrl ul.nav > li > a > i,
+.navbar.navbar-mrl ul.nav > li > a > span.caret {
+	color: rgb(200,200,200);
 }
-.navbar.navbar-marloo ul.dropdown-menu > li > a > i,
-.navbar.navbar-marloo ul.dropdown-menu > li > a > span.caret {
+.navbar.navbar-mrl ul.dropdown-menu > li > a > i,
+.navbar.navbar-mrl ul.dropdown-menu > li > a > span.caret {
 	color: rgb(25,50,108);
 }
-.navbar.navbar-marloo ul.dropdown-menu > li > a:focus,
-.navbar.navbar-marloo ul.dropdown-menu > li > a:hover {
-	background-color: rgb(255,255,153);
+.navbar.navbar-mrl ul.dropdown-menu > li > a:focus,
+.navbar.navbar-mrl ul.dropdown-menu > li > a:hover {
+	background-color: rgb(218,228,251);
 }
-.navbar.navbar-marloo a i {
-	font-size: 16px;
+.navbar.navbar-mrl a > i {
 	display: inline-block;
+	vertical-align: top:;
 	height: 22px;
-	width: 18px;
-	text-align: center;
+	text-align: left;
+	margin-right: .25em;
 }
-.navbar.navbar-marloo a i.fa {
+.navbar.navbar-mrl a i.fa {
 }
 
 /* left sidebar site tree */
@@ -131,21 +194,30 @@ h1 {
 .side-tree * {
 	border-radius: 0 !important;
 }
-.side-tree .panel-group .panel.panel-left-marloo {
+.side-tree .panel-group .panel.panel-left-mrl {
 	border: 0;
 }
-.panel-group .panel.panel-left-marloo .panel-heading,
-.panel-group .panel.panel-left-marloo .panel-footer {
+.panel-group .panel.panel-left-mrl .panel-heading,
+.panel-group .panel.panel-left-mrl .panel-footer {
 	background-color: rgb(43,77,158);
 	color: rgb(218,228,251);
 	text-transform: uppercase;
+	padding: .5em .75em;
 }
-.panel-group .panel.panel-left-marloo .panel-title {
-	font-size: .85em;
+.panel-group .panel.panel-left-mrl .panel-title {
+	font-size: .8em;
 }
 .side-tree ul.list-group {
 	margin-bottom: 0;
 }
+
+/* site tree nodes */
+#site-tree ul > li.node-site-tree {
+	background-color: rgb(218,228,251);
+	border: none;
+	border-bottom: 1px solid rgb(43,77,158);
+}
+
 
 /* user manager */
 #userman-nav-panel .btn-group-vertical {
