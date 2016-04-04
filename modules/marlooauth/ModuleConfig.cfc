@@ -138,7 +138,40 @@ component {
 			// Module Entry Point
 			//{pattern="/", handler="auth", action="login"},
 			// Convention Route
-			{pattern="/:handler/:action?"}
+		{	
+			pattern="marlooUsers",
+			handler="marlooUser",
+			action = {
+				GET = 'find',
+				POST = 'create'
+			}
+		},{
+			pattern="shopitems",
+			handler="shopitem",
+			action = {
+				GET = 'find',
+				POST = 'create'
+			}
+		},{
+			pattern="category/:categoryId-numeric",
+			handler="category",
+			action = {
+				PUT = 'update',
+				DELETE = 'delete',
+				GET = 'read'
+			}
+		},{
+			pattern="shopitem",
+			handler="shopitem",
+			action = {
+				PUT = 'update',
+				DELETE = 'delete',
+				GET = 'read'
+			}
+		},{
+			pattern="/:handler/:action?"
+		}
+				// Find and create
 		];
 
 		// Custom Declared Points
