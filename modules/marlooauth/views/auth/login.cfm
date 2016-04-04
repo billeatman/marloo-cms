@@ -1,11 +1,11 @@
-<div class="container">
+<div id="login-page" class="container-fluid">
 	<cfset writeOutput(getInstance("messagebox@cbmessagebox").renderIt(true))>
 	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
-			<h1 id="login-logo" class="text-center">Marloo CMS</h1>
-			<div id="login-panel" class="panel panel-default">
+		<div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+			<h1 id="login-logo" class="text-center"><img src='/includes/src/img/logos/marloo-cms.png' alt='Marloo CMS' title='Marloo CMS' /></h1>
+			<div id="login-panel" class="panel panel-mrl-dark">
 				<div class="panel-heading">
-					<h2 class="panel-title">Log in to Marloo CMS</h2>
+					<h2 class="panel-title text-center">Go ahead and log in below:</h2>
 				</div> <!-- /.panel-header -->
 				<div class="panel-body">
 				<form id="login-form" class="form-horizontal" action="index.cfm" method="post">
@@ -22,7 +22,7 @@
 						</div>
 					</div>
 					<div class="text-center">
-						<button class="btn btn-primary" type="submit">Log In!</button>
+						<button class="btn btn-mrl-primary" type="submit">Log In!</button>
 					</div>
 				</form>
 				</div> <!-- /.panel-body -->
