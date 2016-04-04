@@ -146,14 +146,14 @@ component {
 				POST = 'create'
 			}
 		},{
-			pattern="shopitems",
-			handler="shopitem",
+			pattern="marlooSecurityGroups",
+			handler="marlooSecurityGroup",
 			action = {
 				GET = 'find',
 				POST = 'create'
 			}
 		},{
-			pattern="category/:categoryId-numeric",
+			pattern="ma/-numeric",
 			handler="category",
 			action = {
 				PUT = 'update',
