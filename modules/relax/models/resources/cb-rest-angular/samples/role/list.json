@@ -1,0 +1,14 @@
+[
+    {
+        "DESCRIPTION": "A Data Input Role",
+        "ROLE": "datainput",
+        "ROLEID": 1,
+        "ITOTALRECORDS": 2
+    },
+    {
+        "DESCRIPTION": "A Administrator",
+        "ROLE": "admin",
+        "ROLEID": 2,
+        "ITOTALRECORDS": 2
+    }
+]

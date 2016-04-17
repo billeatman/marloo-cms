@@ -1,0 +1,26 @@
+{
+    "RESULT": true,
+    "USER": {
+        "permissions": [],
+        "role": {
+            "numberOfUsers": 1,
+            "permissions": [],
+            "description": "A Administrator",
+            "role": "admin",
+            "numberOfPermissions": 5,
+            "roleID": 2,
+            "permissionList": "MAIN_DASHBOARD,SETTINGS_ADMIN,USER_DELETE,USER_EDIT,USER_VIEW"
+        },
+        "createdDate": "January, 17 2014 09:18:40",
+        "loggedIn": true,
+        "firstName": "Captian Teemo",
+        "email": "captian@teemo.com",
+        "username": "teemo",
+        "password": "8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918",
+        "lastLogin": "January, 17 2014 10:05:55",
+        "isActive": true,
+        "permissionList": "",
+        "userID": 1,
+        "lastName": ""
+    }
+}

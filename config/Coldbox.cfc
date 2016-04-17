@@ -101,7 +101,7 @@
 		// Module Directives
 		modules = {
 			//Turn to false in production
-			autoReload = false,
+			autoReload = true,
 			// An array of modules names to load, empty means all of them
 			include = [],
 			// An array of modules names to NOT load, empty means none

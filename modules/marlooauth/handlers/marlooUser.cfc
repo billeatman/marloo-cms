@@ -2,8 +2,8 @@
 * I am a new handler
 */
 component{
-	property name="orm" inject="entityservice:category" setter=false getter=false;
-	
+	property name="orm" inject="entityservice:marlooUser" setter=false getter=false;
+
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -33,8 +33,9 @@ component{
 	}
 		
 	function find(event,rc,prc){
-		var categories = orm.list(asQuery: false);
-		event.renderData(data: categories, type="json");
+		//var users = orm.list(asQuery: true);
+
+		//event.renderData(data: users, type="json");
 	}	
 
 	function create(event,rc,prc){

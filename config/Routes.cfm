@@ -1,6 +1,6 @@
 ﻿<cfscript>
 	// Allow unique URL or combination of URLs, we recommend both enabled
-	setUniqueURLS(true);
+	setUniqueURLS(false);
 	// Auto reload configuration, true in dev makes sense to reload the routes on every request
 	setAutoReload(true);
 	// Sets automatic route extension detection and places the extension in the rc.format variable
@@ -12,13 +12,16 @@
 
 	// Base URL
 	if( len(getSetting('AppMapping') ) lte 1){
-		setBaseURL("http://#cgi.HTTP_HOST#/");
+		setBaseURL("http://#cgi.HTTP_HOST#/index.cfm");
 	}
 	else{
-		setBaseURL("http://#cgi.HTTP_HOST#/#getSetting('AppMapping')#/");
+		setBaseURL("http://#cgi.HTTP_HOST#/#getSetting('AppMapping')#/index.cfm");
 	}
 
+	addRoute(pattern="relax", handler="relax:home", action="index");
+
 	addRoute(pattern=":handler/:action?");
+
 
 
 	/** Developers can modify the CGI.PATH_INFO value in advance of the SES
