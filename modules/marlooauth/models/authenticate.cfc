@@ -27,17 +27,17 @@ component accessors=true {
 					// Check for temp clear text password
 					if (!len(local.user.getPwHash()) && len(local.user.getPwTemp())) {
 						if (password == local.user.getPwTemp()){
-							error.setError(message: "RESET PASSWORD", code: "7");
+							error.setError(message: "You've reset your password.", code: "7");
 							break;
 						} else {
-							error.setError(message: "INCORRECT PASSWORD", code: "1");
+							error.setError(message: "You've entered an incorrect password.", code: "1");
 							break;
 						}
 					}
 						
 					// Check for hashed password (default)
 					if (!local.user.checkPassword(arguments.password)) {
-						error.setError(message: "INCORRECT PASSWORD", code: "1");
+						error.setError(message: "Your password is incorrect.", code: "1");
 						break;
 					}
 				break;
@@ -45,13 +45,13 @@ component accessors=true {
 					// Check if user exists
 					local.user = ORMService.get('marlooUser', arguments.username);
 					if (NOT isDefined('local.user')) {
-						error.setError(message: "INVALID USERNAME", code: "5");
+						error.setError(message: "The username you entered is invalid.", code: "5");
 						break;
 					}
 
 					// Check if user is active
 					if (NOT local.user.getActive()){
-						error.setError(message: "USER NOT ACTIVE", code: "6");
+						error.setError(message: "This user is not active in this system.", code: "6");
 						break;
 					}	
 				break;
@@ -63,13 +63,13 @@ component accessors=true {
 				// Simple password check DEV ONLY!
 				case 'simple':
 					if (NOT simple(password: arguments.password)){
-						error.setError(message: "INVALID PASSWORD", code: "5");
+						error.setError(message: "The password you entered is invalid.", code: "5");
 					}
 				break;
 				// Validate email address  
 				case 'email':
 					if (NOT isValid('email', arguments.username)){
-						error.setError(message: "NOT EMAIL", code: "3");
+						error.setError(message: "Please enter a correct email address.", code: "3");
 					}
 				break;
 			}

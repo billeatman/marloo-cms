@@ -125,7 +125,7 @@ component {
 
 		// Layout Settings
 		layoutSettings = {
-			defaultLayout = ""
+			defaultLayout = "Login"
 		};
 
 		// datasources

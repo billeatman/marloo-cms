@@ -27,8 +27,8 @@
 	<table class='table table-striped'>
 		<thead>
 			<tr>
-				<th>Options</th>
 				<th>Username</th>
+				<th>Options</th>
 				<th>Date Added</th>
 				<th>Active?</th>
 			</tr>
@@ -37,12 +37,12 @@
 	<cfloop query='user'>
 			<tr>
 				<cfoutput>
+				<td>#user.login#</td>
 				<td>
 					<a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser', queryString='login=#user.login#')#" class='btn btn-xs btn-mrl'><i class='ti ti-pencil'></i> Edit</a>
 					<a href="#event.buildLink(linkTo: 'marlooauth:userman.deleteuser', queryString='login=#user.login#')#" class='btn btn-xs btn-mrl confirm'><i class='ti ti-trash'></i> Delete</a>
 				</td>
-				<td>#user.login#</td>
-				<td>#dateFormat(user.createdDate)#</td>
+				<td>#dateFormat(user.createdDate, "mmmm dd, yyyy")#</td>
 				<td>#isActive(user.active)#</td>
 				</cfoutput>
 			</tr>

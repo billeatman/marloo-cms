@@ -142,10 +142,10 @@
 
 		//Register Layouts
 		layouts = [
-			// Login page has its own layout
-			{ name = "Login",
-		 	  file = "Login.cfm",
-			  views = "auth/login",
+			//Login & Password Reset pages have own layout
+			{ name = "Main",
+		 	  file = "Main.cfm",
+			  views = "userman/listUsers",
 			  folders = "tags"
 			}
 		];
