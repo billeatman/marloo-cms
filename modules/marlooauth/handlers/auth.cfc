@@ -7,10 +7,12 @@ component extends="coldbox.system.EventHandler"{
 	}
 
 	function login(event,rc,prc){
+		event.setLayout("login");
 		event.setView("auth/login");		
 	}
 
 	function logout(event,rc,prc){
+		event.setLayout("login");
 		event.setView("auth/login");
 		structClear(session);
 		cflogout();
