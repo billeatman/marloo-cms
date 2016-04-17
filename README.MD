@@ -6,7 +6,7 @@ Note:  This project is very very alpha and probably won't be of use to you yet. 
 
 Setting up Marloo
 
-I'm assuming Lucee and MSSQL
+I'm assuming Commandbox(Lucee) and MSSQL
 
 Database:
 
@@ -19,6 +19,12 @@ Open a new query and load the file setup-sql\MSSQL_populate_marloo.sql.cfm
 Run the script on the database.  This will populate the database.
 
 Now add the datasource in Lucee as marloo-cms.
+
+Server:
+
+You must start your server using commandbox with the flag --rewritesEnable for SES urls.
+
+server start --rewritesEnable
 
 
 

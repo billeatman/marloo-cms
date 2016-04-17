@@ -1,0 +1,8 @@
+{
+    "COMMUNICATION": {},
+    "ERRORTYPE": 1,
+    "ERRORARRAY": [
+        "Sender.email is required"
+    ],
+    "STATUS": "ERROR"
+}

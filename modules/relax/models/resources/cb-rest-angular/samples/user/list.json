@@ -1,0 +1,18 @@
+[
+    {
+        "FIRSTNAME": "Wukong",
+        "USERNAME": "wukong",
+        "EMAIL": "wu@kong.com",
+        "ITOTALRECORDS": 2,
+        "LASTNAME": "",
+        "USERID": 1
+        },
+        {
+        "FIRSTNAME": "Captian Teemo",
+        "USERNAME": "teemo",
+        "EMAIL": "captian@teemo.com",
+        "ITOTALRECORDS": 2,
+        "LASTNAME": "",
+        "USERID": 2
+    }
+]

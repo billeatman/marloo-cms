@@ -1,0 +1,1617 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>DSLService</title>
+	<meta name="keywords" content="relax.concurrent.Callable interface">
+	<!-- common assets -->
+	
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel ="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+<link rel ="stylesheet" type="text/css" href="../stylesheet.css">
+	
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,700,700italic|Ubuntu+Mono' rel='stylesheet' type='text/css' />
+	
+<script src="../bootstrap/js/jquery-2.1.0.min.js" type="text/javascript"></script>
+<script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script>
+$(document).ready(function() {
+	// Global Tool Tip Settings
+	$( '[title]' ).tooltip({
+		 animation: 'slide',
+		 delay: { show: 250, hide: 250 }
+	});
+});
+</script>
+	<!-- syntax highlighter -->
+	<link type="text/css" rel="stylesheet" href="../highlighter/styles/shCoreDefault.css">
+	<script src="../highlighter/scripts/shCore.js"></script>
+	<script src="../highlighter/scripts/shBrushColdFusion.js"></script>
+	<script src="../highlighter/scripts/shBrushXml.js"></script>
+	<script src="../highlighter/scripts/shBrushSql.js"></script>
+	<script src="../highlighter/scripts/shBrushJScript.js"></script>
+	<script src="../highlighter/scripts/shBrushJava.js"></script>
+	<script src="../highlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+
+<body class="withNavbar">
+
+
+
+
+
+
+<!-- ========= START OF NAVBAR ======= -->
+<a name="navbar_top"></a>
+<a href="#skip-navbar_top" title="skip navigation links"></a>	
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+    
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#class-navigation">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><strong>relax v2.2.0</strong></a>
+		</div>
+
+	    <div class="collapse navbar-collapse" id="class-navigation">
+	    	<ul class="nav navbar-nav">
+				
+					
+					<li><a href="../overview-summary.html"><i class="glyphicon glyphicon-plane"></i> overview</a></li>
+					
+				
+
+				
+					<li><a href="package-summary.html"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;package</a></li>
+				
+
+			  	
+					<li class="dropdown active">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-file"></i> class <b class="caret"></b></a>
+
+						<ul class="dropdown-menu">
+							<li><a href="#class">Class Definition</a></li>
+							<li><a href="#constructor_summary">Constructor Summary</a></li>
+							<li><a href="#constructor_detail">Constructor Detail</a></li>
+							<li><a href="#inherited_methods">Inherited Methods</a></li>
+							<li><a href="#method_summary">Method Summary</a></li>
+							<li><a href="#method_detail">Method Detail</a></li>
+							<li><a href="#property_summary">Property Summary</a></li>
+							<li><a href="#property_detail">Property Detail</a></li>
+							
+						</ul>
+					</li>
+				
+	      	</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../index.html?relax/DSLService.html" target="_top">
+					<i class="glyphicon glyphicon-fullscreen"></i> Frames
+					</a>
+				</li>
+			</ul>
+	    </div>
+
+	</div>
+</nav>	
+
+<a name="skip-navbar_top"></a>
+<!-- ========= END OF NAVBAR ========= -->
+
+<!-- ======== start of class data ======== -->
+<a name="class"><!-- --></a>
+
+<!-- Package -->
+<div class="pull-right">
+	<a href="package-summary.html" title="Package: relax"><span class="label label-success">relax</span></a>
+</div>
+
+<h2>
+
+
+Class
+
+ DSLService</h2>
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+	
+		
+		
+			
+		
+	
+	
+
+
+<!-- Inheritance Tree-->
+<pre style="background:white">lucee.Component
+    <img src="../resources/inherit.gif" alt="extended by ">relax.DSLService
+</pre>
+
+
+
+	
+	
+
+
+
+
+
+
+
+<div id="class-hint">
+	<p>Copyright Ortus Solutions, Corp, All rights reserved
+www.ortussolutions.com
+---
+The DSL Service</p>
+</div>
+
+
+<!-- Clas Attributes -->
+<div class="panel panel-info">
+	<div class="panel-heading"><strong>Class Attributes:</strong></div>
+		<div class="panel-body">
+		
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				singleton 
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				synchronized 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				accessors 
+				
+				: true		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+			
+			<li class="label label-danger label-annotations">
+				persistent 
+				
+				: false		
+				
+			</li>
+			&nbsp;
+			
+		
+			
+		
+			
+		
+		
+	</div>
+</div>
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="property_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="5">
+			<strong>Property Summary</strong>
+		</th>
+	</tr>
+	<tr class="info">
+		<th align="left">
+			<strong>type</strong>
+		</th>
+		<th align="left">
+			<strong>property</strong>
+		</th>
+		<th align="left">
+			<strong>default</strong>
+		</th>
+		<th align="left">
+			<strong>serializable</strong>
+		</th>
+		<th align="left">
+			<strong>required</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>struct</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#APIDefinitions()">APIDefinitions</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Storage for API Definitions.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#log()">log</A></strong> 
+			<br>
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+				<li class="label label-default label-annotations">inject = logbox:logger:{this}</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#sessionsEnabled()">sessionsEnabled</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Flag that tell us if the underlying application leverages session scope.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>struct</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#settings()">settings</A></strong> 
+			<br>
+			
+			<!-- only grab the first sentence of the hint -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The relax module's settings.
+			
+			<br><br>
+			<ul>
+			
+				
+			
+				
+				<li class="label label-default label-annotations">access = public</li>
+				
+			
+				
+			
+				
+			
+				
+				<li class="label label-default label-annotations">returntype = any</li>
+				
+			
+				
+			
+				
+			
+				
+			
+			</ul>
+
+		</td>
+		<td align="right" valign="top" width="1%">
+			
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				true
+			</code>
+		</td>
+		<td align="right" valign="top" width="1%">
+			<code>
+				false
+			</code>
+		</td>
+	</tr>
+	
+	</tr>
+</table>
+
+
+
+	
+	
+	<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+	<a name="constructor_summary"><!-- --></a>
+	<table class="table table-bordered table-hover">
+		<tr class="info">
+			<th align="left" colspan="2">
+				<strong>Constructor Summary</strong>
+			</th>
+		</tr>
+		<tr>
+			
+			<td>
+				<strong><a href="DSLService.html#init()">init</A></strong>(any settings)
+				<br>
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Constructor.
+				
+			</td>
+		</tr>
+	</table>
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+
+<a name="method_summary"><!-- --></a>
+<table class="table table-bordered table-hover">
+	<tr class="info">
+		<th align="left" colspan="2">
+			<strong>Method Summary</strong>
+		</th>
+	</tr>
+
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code><a href="../relax/DSLService.html" title="class in relax">DSLService</a></code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#clearUserData()">clearUserData</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clears user data.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getAPI()">getAPI</A></strong>(any name)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get an API definition.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getAPIDefinitions()">getAPIDefinitions</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getLoadedAPI()">getLoadedAPI</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the loaded API representation.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getLoadedAPIName()">getLoadedAPIName</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the loaded API name.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getLog()">getLog</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getSessionsEnabled()">getSessionsEnabled</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>string</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#getSettings()">getSettings</A></strong>()
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code><a href="../relax/DSLService.html" title="class in relax">DSLService</a></code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#importAPI()">importAPI</A></strong>(any name, any json)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Import a relax API.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>private&nbsp;any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#injectMixin()">injectMixin</A></strong>(any name, any UDF)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Injection method.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>boolean</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#isLoadedAPI()">isLoadedAPI</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Checks if an API is loaded or not, usually by checking the user's data.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>query</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#listAPIs()">listAPIs</A></strong>()
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get a listing of all the APIs in the resources folder.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#loadAPI()">loadAPI</A></strong>(any name)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load an API into the service and get its representation.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code><a href="../relax/DSLService.html" title="class in relax">DSLService</a></code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#processConfiguration()">processConfiguration</A></strong>(any dataCFC)
+			<br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Process a relax configure method.
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#setAPIDefinitions()">setAPIDefinitions</A></strong>(struct APIDefinitions)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#setLog()">setLog</A></strong>(any log)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#setSessionsEnabled()">setSessionsEnabled</A></strong>(boolean sessionsEnabled)
+			<br>
+			
+		</td>
+	</tr>
+	
+	
+	
+	<tr>
+		<td align="right" valign="top" width="1%">
+			<code>any</code>
+		</td>
+		<td>
+			<strong><a href="DSLService.html#setSettings()">setSettings</A></strong>(struct settings)
+			<br>
+			
+		</td>
+	</tr>
+	
+</table>
+
+
+
+<a name="inherited_methods"><!-- --></a>
+
+
+	
+
+	
+
+	&nbsp;
+	<a name="methods_inherited_from_class_lucee.Component"><!-- --></a>
+	<table class="table table-hover table-bordered">
+		<tr class="info">
+			<th align="left">
+				<strong>Methods inherited from class <kbd>lucee.Component</kbd></strong>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				
+				
+				
+				
+				
+					<span class="label label-warning"><em>None</em></span>
+				
+			</td>
+		</tr>
+	</table>
+
+
+<hr>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+	<a name="constructor_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Constructor Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	<a name="init()"><!-- --></a><h3>
+	init</h3>
+	<kbd>public <strong>init</strong>(any settings)</kbd>
+
+	<br><br>
+
+	
+	<p>Constructor</p>
+	
+
+	
+	<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+			<dd><code>settings</code> - The relax module settings needed</dd>
+		
+	</dl>
+	
+	<hr>
+
+
+<!-- ============ PROPERTY DETAIL ========== -->
+
+	<a name="property_detail"><!-- --></a>
+	<table class="table table-bordered">
+		<tr class="info">
+			<th colspan="1" align="left">
+				<strong>Property Detail</strong>
+			</th>
+		</tr>
+	</table>
+
+	
+		
+		<a name="APIDefinitions()"><!-- --></a>
+		<h3>APIDefinitions</h3>
+
+		<kbd>
+			property struct 
+			<strong>APIDefinitions</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>Storage for API Definitions</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="log()"><!-- --></a>
+		<h3>log</h3>
+
+		<kbd>
+			property any 
+			<strong>log</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+			<dd><code>inject</code> - logbox:logger:{this}</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="sessionsEnabled()"><!-- --></a>
+		<h3>sessionsEnabled</h3>
+
+		<kbd>
+			property boolean 
+			<strong>sessionsEnabled</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>Flag that tell us if the underlying application leverages session scope</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+		
+		<a name="settings()"><!-- --></a>
+		<h3>settings</h3>
+
+		<kbd>
+			property struct 
+			<strong>settings</strong>
+			
+		</kbd>
+
+		<br><br>
+		
+			<p>The relax module's settings</p>
+		
+
+		<dl>
+		<dt><strong>Attributes:</strong></dt>
+		
+			
+		
+			
+			<dd><code>access</code> - public</dd>
+			
+		
+			
+			<dd><code>required</code> - false</dd>
+			
+		
+			
+		
+			
+			<dd><code>returntype</code> - any</dd>
+			
+		
+			
+		
+			
+		
+			
+			<dd><code>serializable</code> - true</dd>
+			
+		
+		</dl>
+
+		<hr>
+	
+
+
+
+
+
+
+
+
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<a name="method_detail"><!-- --></a>
+<table class="table table-bordered">
+	<tr class="info">
+		<th colspan="1" align="left">
+			<strong>Method Detail</strong>
+		</th>
+	</tr>
+</table>
+
+
+	
+	<a name="clearUserData()"><!-- --></a>
+	<h3>clearUserData</h3>
+	
+	<kbd>public <a href="../relax/DSLService.html" title="class in relax">DSLService</a> <strong>clearUserData</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Clears user data</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getAPI()"><!-- --></a>
+	<h3>getAPI</h3>
+	
+	<kbd>public any <strong>getAPI</strong>(any name)</kbd>
+	
+	<br><br>
+
+	
+		<p>Get an API definition</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>name</code> - The name of the API to get.</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getAPIDefinitions()"><!-- --></a>
+	<h3>getAPIDefinitions</h3>
+	
+	<kbd>public string <strong>getAPIDefinitions</strong>()</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getLoadedAPI()"><!-- --></a>
+	<h3>getLoadedAPI</h3>
+	
+	<kbd>public any <strong>getLoadedAPI</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get the loaded API representation</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getLoadedAPIName()"><!-- --></a>
+	<h3>getLoadedAPIName</h3>
+	
+	<kbd>public string <strong>getLoadedAPIName</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get the loaded API name</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getLog()"><!-- --></a>
+	<h3>getLog</h3>
+	
+	<kbd>public string <strong>getLog</strong>()</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getSessionsEnabled()"><!-- --></a>
+	<h3>getSessionsEnabled</h3>
+	
+	<kbd>public string <strong>getSessionsEnabled</strong>()</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="getSettings()"><!-- --></a>
+	<h3>getSettings</h3>
+	
+	<kbd>public string <strong>getSettings</strong>()</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="importAPI()"><!-- --></a>
+	<h3>importAPI</h3>
+	
+	<kbd>public <a href="../relax/DSLService.html" title="class in relax">DSLService</a> <strong>importAPI</strong>(any name, any json)</kbd>
+	
+	<br><br>
+
+	
+		<p>Import a relax API</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>name</code> - The name of the API to import</dd>
+		
+		<dd><code>json</code> - The JSON representation of the API</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="injectMixin()"><!-- --></a>
+	<h3>injectMixin</h3>
+	
+	<kbd>private any <strong>injectMixin</strong>(any name, any UDF)</kbd>
+	
+	<br><br>
+
+	
+		<p>Injection method</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>name</code></dd>
+		
+		<dd><code>UDF</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="isLoadedAPI()"><!-- --></a>
+	<h3>isLoadedAPI</h3>
+	
+	<kbd>public boolean <strong>isLoadedAPI</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Checks if an API is loaded or not, usually by checking the user's data</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="listAPIs()"><!-- --></a>
+	<h3>listAPIs</h3>
+	
+	<kbd>public query <strong>listAPIs</strong>()</kbd>
+	
+	<br><br>
+
+	
+		<p>Get a listing of all the APIs in the resources folder</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="loadAPI()"><!-- --></a>
+	<h3>loadAPI</h3>
+	
+	<kbd>public any <strong>loadAPI</strong>(any name)</kbd>
+	
+	<br><br>
+
+	
+		<p>Load an API into the service and get its representation. This can be a Relax.cfc or a Relax.json representation.</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>name</code> - The API to load</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="processConfiguration()"><!-- --></a>
+	<h3>processConfiguration</h3>
+	
+	<kbd>public <a href="../relax/DSLService.html" title="class in relax">DSLService</a> <strong>processConfiguration</strong>(any dataCFC)</kbd>
+	
+	<br><br>
+
+	
+		<p>Process a relax configure method</p>
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>dataCFC</code> - The data CFC to process</dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setAPIDefinitions()"><!-- --></a>
+	<h3>setAPIDefinitions</h3>
+	
+	<kbd>public any <strong>setAPIDefinitions</strong>(struct APIDefinitions)</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>APIDefinitions</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setLog()"><!-- --></a>
+	<h3>setLog</h3>
+	
+	<kbd>public any <strong>setLog</strong>(any log)</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>log</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setSessionsEnabled()"><!-- --></a>
+	<h3>setSessionsEnabled</h3>
+	
+	<kbd>public any <strong>setSessionsEnabled</strong>(boolean sessionsEnabled)</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>sessionsEnabled</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+	
+	<a name="setSettings()"><!-- --></a>
+	<h3>setSettings</h3>
+	
+	<kbd>public any <strong>setSettings</strong>(struct settings)</kbd>
+	
+	<br><br>
+
+	
+
+	
+		
+		
+	
+
+	
+	
+
+	
+		<dl>
+		<dt><strong>Parameters:</strong></dt>
+		
+		<dd><code>settings</code></dd>
+		
+		</dl>
+	
+
+	
+
+	</dl>
+	<hr>
+
+
+
+
+</body>
+</html>
+
