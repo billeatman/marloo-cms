@@ -32,27 +32,27 @@ component{
 		abort;
 	}*/
 		
-	function find(event,rc,prc){
+	function list(event,rc,prc){
 		var c = userService.newCriteria();
 
-		c.isEQ('active', javacast("string", 'T'));
+		c.isEQ('active', javacast('string', 'T'));
 
 		var users = c.list(asQuery: false);
 		var r = [];
 
 		for (var user in users) {
 			var u = {
-				"login" = user.getLogin(),
-				"firstName" = user.getFirstName(),
-				"lastName" = user.getLastName(),
-				"active" = user.getActive(),
-				"createdDate" = user.getCreatedDate(),
-				"pwHashDate" = user.getPwHashDate()
+				'login' = user.getLogin(),
+				'firstName' = user.getFirstName(),
+				'lastName' = user.getLastName(),
+				'active' = user.getActive(),
+				'createdDate' = getISO8601(user.getCreatedDate()),
+				'pwHashDate' = getISO8601(user.getPwHashDate())
 			};
 			ArrayAppend(r, u);
 		}
 
-		event.renderData(data: r, type="json");
+		event.renderData(data: r, type='json');
 	}	
 
 	function create(event,rc,prc){

@@ -38,7 +38,7 @@
 				<td>{{user.login}}</td>
 				<td><button class='btn btn-xs btn-mrl'><i class='ti ti-pencil'></i> Edit</button>
 					<button class='btn btn-xs btn-mrl confirm'><i class='ti ti-trash'></i> Delete</button></td>
-				<td>{{user.createdDate}}</td>
+				<td>{{user.createdDate | date:'MM/dd/yyyy'}}</td>
 				<td>{{user.active}}</td>
 			</tr>
 			<tr>
