@@ -2,7 +2,7 @@
 * I am a new handler
 */
 component{
-	property name="orm" inject="entityservice:marlooUser" setter=false getter=false;
+	property name="userService" inject="entityservice:marlooUser" setter=false getter=false;
 
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
@@ -26,16 +26,33 @@ component{
 	}
 	function onMissingAction( event, rc, prc, missingAction, eventArguments ){
 	}*/
-
+/*
 	function onError( event, rc, prc, faultAction, exception, eventArguments ){
 		cfheader(statuscode="500", statustext="Internal Server Error");
 		abort;
-	}
+	}*/
 		
 	function find(event,rc,prc){
-		//var users = orm.list(asQuery: true);
+		var c = userService.newCriteria();
 
-		//event.renderData(data: users, type="json");
+		c.isEQ('active', javacast("string", 'T'));
+
+		var users = c.list(asQuery: false);
+		var r = [];
+
+		for (var user in users) {
+			var u = {
+				"login" = user.getLogin(),
+				"firstName" = user.getFirstName(),
+				"lastName" = user.getLastName(),
+				"active" = user.getActive(),
+				"createdDate" = user.getCreatedDate(),
+				"pwHashDate" = user.getPwHashDate()
+			};
+			ArrayAppend(r, u);
+		}
+
+		event.renderData(data: r, type="json");
 	}	
 
 	function create(event,rc,prc){
