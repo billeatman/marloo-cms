@@ -14,7 +14,7 @@
 		</div> <!--- /panel --->
 	</div> <!--- /panel-group --->
 </div> <!--- /3 --->
-<div class='col-md-9'>
+<div class='col-md-9' ng-controller="UsermanController as userman">
 	<div class='row'>
 		<div class='col-md-8'>
 			<h1>Users</h1>
@@ -34,19 +34,60 @@
 			</tr>
 		</thead>
 		<tbody>
-	<cfloop query='user'>
-			<tr>
-				<cfoutput>
-				<td>#user.login#</td>
-				<td>
-					<a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser', queryString='login=#user.login#')#" class='btn btn-xs btn-mrl'><i class='ti ti-pencil'></i> Edit</a>
-					<a href="#event.buildLink(linkTo: 'marlooauth:userman.deleteuser', queryString='login=#user.login#')#" class='btn btn-xs btn-mrl confirm'><i class='ti ti-trash'></i> Delete</a>
-				</td>
-				<td>#dateFormat(user.createdDate, "mmmm dd, yyyy")#</td>
-				<td>#isActive(user.active)#</td>
-				</cfoutput>
+			<tr ng-repeat="user in userman.users">
+				<td>{{user.login}}</td>
+				<td><button class='btn btn-xs btn-mrl'><i class='ti ti-pencil'></i> Edit</button>
+					<button class='btn btn-xs btn-mrl confirm'><i class='ti ti-trash'></i> Delete</button></td>
+				<td>{{user.createdDate | date:'MM/dd/yyyy'}}</td>
+				<td>{{user.active}}</td>
 			</tr>
-	</cfloop>
+			<tr>
+				<td colspan='4'>
+					<div class='row'>
+						<div class='col-md-offset-2 col-md-8'>
+							<form id='edit-user' class='form form-horizontal'>
+								<div class='form-group'>
+									<label for='user-email' class='col-md-3'>Username / email:</label>
+									<div class='col-md-9'>
+										<input type='email' name='user-email' class='form-control' value='billeatman@hotmail.com' />
+									</div>
+								</div>
+								<div class='form-group'>
+									<label for='user-pass' class='col-md-3'>Update Password:</label>
+									<div class='col-md-9'>
+										<input type='password' name='user-pass' class='form-control' value='' />
+									</div>
+								</div>
+								<div class='form-group'>
+									<label for='user-fname' class='col-md-3'>Name:</label>
+									<div class='col-md-9'>
+										<div class='row'>
+											<div class='col-md-6'>
+												<input type='text' name='user-fname' class='form-control' value='Billy' />
+											</div>
+											<div class='col-md-6'>
+												<input type='text' name='user-lname' class='form-control' value='Eatman' />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class='form-group'>
+									<div class='col-md-6 col-md-offset-3'>
+										<div class='checkbox'>
+											<label>
+												<input type='checkbox' name='user-active' value='' /> This account is active.
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class='form-group text-center'>
+									<button type='submit' name='submit' class='btn btn-md btn-mrl'>Edit this User</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 
@@ -59,19 +100,6 @@
 
 		<cfreturn 'Inactive'>		
 	</cffunction>
-
-	<script type="text/javascript">
-	var elements = document.getElementsByClassName('confirm');
-
-	for (var e = 0; e < elements.length; ++e) {
-		elements[e].addEventListener('click', function(e){
-			if (!confirm('Are you sure?'))
-				e.preventDefault();
-		}, false);
-	}
-
-	</script>
-
-</div> <!--- /9 --->
+</div> 
 
 

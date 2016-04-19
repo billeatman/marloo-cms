@@ -1,9 +1,14 @@
 ﻿<!--- All methods in this helper will be available in all handlers, views & layouts --->
 
 <!--- Thanks Ben! - http://www.bennadel.com/blog/2501-Converting-ColdFusion-Date-Time-Values-Into-ISO-8601-Time-Strings.htm --->
-<cffunction name="GetISO8601" access="private" returntype="string">
-	<cfargument name="date" type="date" required="true">  
+<cffunction name="ToISO8601" access="private" returntype="string">
+	<cfargument name="date" type="date" required="false">  
 	<cfargument name="convertToUTC" type="boolean" required="false" default="false">
+
+	<!--- return a blank string if a null is passed --->
+	<cfif NOT isDefined("arguments.date")>
+		<cfreturn "">
+	</cfif>
 
 	<cfset local.date = arguments.date>
 
@@ -14,7 +19,7 @@
 	<cfset local.date = dateFormat( date, "yyyy-mm-dd" ) & "T" & timeFormat( date, "HH:mm:ss" )>
 
     <cfif arguments.convertToUTC>
-        <cfset local.date = local.date & "Z">        
+        <cfset local.date = local.date & "Z">
     </cfif>
 
     <!---

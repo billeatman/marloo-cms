@@ -3,7 +3,7 @@ component extends="coldbox.system.EventHandler"{
 
 	function listUsers(event,rc,prc){
 		prc.users = orm.list('marlooUser');
-		event.setView("userman/listusers2");
+		event.setView("userman/listusers");
 	}
 
 	function saveUser(event,rc,prc){
