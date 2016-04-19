@@ -7,11 +7,9 @@
 		var userman = this;
 		userman.users = [];
 
-		$http({ method: 'GET', url: '/index.cfm/marlooauth:marlooUser/find'}).success(function(data){
+		$http({ method: 'GET', url: '/index.cfm/marlooauth:marlooUser/list'}).success(function(data){
 			userman.users = data;
 			console.log(userman.users);
 		});
 	} ]);
-
-	
 })();
