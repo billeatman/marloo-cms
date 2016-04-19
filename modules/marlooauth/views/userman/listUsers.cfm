@@ -6,6 +6,7 @@
 			</div> <!--- /panel-heading --->
 			<div class='panel-body'>
 				<div class='btn-group-vertical' role='group' ng-controller='UsermanController as userman'>
+				{{currentURL}}
 					<a ng-href='{{currentURL}}#Users' class='btn btn-default btn-lg active'><i class='typcn typcn-user'></i> Users</a>
 					<a ng-href='{{currentURL}}#Groups' class='btn btn-default btn-lg'><i class='typcn typcn-group'></i> Groups</a>
 					<a ng-href='{{currentURL}}#Roles' class='btn btn-default btn-lg'><i class='ti ti-id-badge'></i> Roles</a>
