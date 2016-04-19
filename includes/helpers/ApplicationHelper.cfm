@@ -6,7 +6,7 @@
 	<cfargument name="convertToUTC" type="boolean" required="false" default="false">
 
 	<!--- return a blank string if a null is passed --->
-	<cfif NOT isDefined("arguments.date")>
+	<cfif NOT structKeyExists(arguments, "date")>
 		<cfreturn "">
 	</cfif>
 

@@ -35,7 +35,7 @@ component{
 	function list(event,rc,prc){
 		var c = userService.newCriteria();
 
-		c.isEQ('active', javacast('string', 'T'));
+		//c.isEQ('active', javacast('string', 'T'));
 
 		var users = c.list(asQuery: false);
 		var r = [];
@@ -46,8 +46,8 @@ component{
 				'firstName' = user.getFirstName(),
 				'lastName' = user.getLastName(),
 				'active' = user.getActive(),
-				'createdDate' = getISO8601(user.getCreatedDate()),
-				'pwHashDate' = getISO8601(user.getPwHashDate())
+				'createdDate' = toISO8601(user.getCreatedDate()),
+				'pwHashDate' = toISO8601(user.getPwHashDate())
 			};
 			ArrayAppend(r, u);
 		}
