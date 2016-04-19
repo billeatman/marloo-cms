@@ -290,3 +290,8 @@ form label {
 	width: 28px;
 	font-size: .9em;
 }
+
+/* Needed for angular-ui and bootstrap 
+https://angular-ui.github.io/bootstrap/
+*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
