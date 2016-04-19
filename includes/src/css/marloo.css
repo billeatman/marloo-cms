@@ -129,6 +129,24 @@ h1 {
 	color: rgb(40,40,40);
 }
 
+/* pills */
+ul.nav-pills.nav-justified li {
+	padding: 0 .5em;
+}
+ul.nav-pills.nav-justified li a {
+	border-radius: 0;
+}
+ul.nav-pills.nav-justified li a i {
+	display: block;
+	font-size: 22px;
+	line-height: 30px;
+}
+
+/* sidebars */
+.sidebar.sidebar-mrl {
+	background-color: rgb(240,240,240);
+}
+
 /* forms */
 form label {
 	color: rgb(40,40,40);
