@@ -1,31 +1,4 @@
-<div class='col-md-12' ng-controller="UsersController as users">
-	<div class='row'>
-		<div class='col-md-8'>
-			<h1>Users</h1>
-		</div> <!-- /8 -->
-		<div class='col-md-4 text-right'>
-			<cfoutput><a href="#event.buildLink(linkTo: 'marlooauth:userman.edituser')#" class='btn btn-mrl-primary'><i class='typcn typcn-user-add-outline'></i> Add a User</a></cfoutput>
-		</div> <!-- /4 -->
-	</div> <!-- /row -->
-	<cfset user = prc.users>
-	<table class='table table-striped'>
-		<thead>
-			<tr>
-				<th>Username</th>
-				<th>Options</th>
-				<th>Date Added</th>
-				<th>Active?</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="user in users.users">
-				<td>{{user.login}}</td>
-				<td><button class='btn btn-xs btn-mrl'><i class='ti ti-pencil'></i> Edit</button>
-					<button class='btn btn-xs btn-mrl confirm'><i class='ti ti-trash'></i> Delete</button></td>
-				<td>{{user.createdDate | date:'MM/dd/yyyy'}}</td>
-				<td>{{user.active}}</td>
-			</tr>
-			<tr>
+<tr>
 				<td colspan='4'>
 					<div class='row'>
 						<div class='col-md-offset-2 col-md-8'>
@@ -72,16 +45,3 @@
 					</div>
 				</td>
 			</tr>
-		</tbody>
-	</table>
-
-	<cffunction name="isActive">
-		<cfargument name="active" required="true">
-
-		<cfif ucase(trim(arguments.active)) EQ 'T'>
-			<cfreturn 'Active'>
-		</cfif>
-
-		<cfreturn 'Inactive'>		
-	</cffunction>
-</div>
