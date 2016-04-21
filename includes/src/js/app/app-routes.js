@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var baseURL = "includes/js/app/";
+	var baseURL = "includes/src/js/app/";
 	var app = angular.module('marloo-cms', ['ngRoute']);
 
 	app.controller('UsersController', [ '$scope', '$http', function($scope, $http, $route) {
@@ -23,13 +23,13 @@
 		function($routeProvider){
 			$routeProvider.
 			when('/Users', {
-				templateUrl: baseURL + 'templates/users.html'
+				templateUrl: baseURL + 'templates/userman/users.html'
 			}).
 			when('/Groups', {
-				templateUrl: baseURL + 'templates/groups.html'
+				templateUrl: baseURL + 'templates/userman/groups.html'
 			}).
 			when('/Roles', {
-				templateUrl: baseURL + 'templates/roles.html'
+				templateUrl: baseURL + 'templates/userman/roles.html'
 			}).
 			otherwise({
 				redirectTo: '/Users'

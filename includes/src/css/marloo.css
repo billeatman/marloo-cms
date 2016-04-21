@@ -20,6 +20,7 @@ light gray -     rgb(200,200,200)
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+	background-color: rgb(230,230,230);
 }
 h1,h2,h3,h4,h5,h6, 
 .navbar-mrl, thead, *[class^='btn-mrl'], .btn, form label {
@@ -30,40 +31,40 @@ h1 {
 }
 
 /* utility classes */
-.margin-0 {
+.m-0 {
 	margin: 0 !important;
 }
-.margin-xs {
+.m-xs {
 	margin: 2px !important;
 }
-.margin-sm {
+.m-sm {
 	margin: 4px !important;
 }
-.margin-md {
+.m-md {
 	margin: 6px !important;
 }
-.margin-lg {
+.m-lg {
 	margin: 8px !important;
 }
-.margin-xl {
+.m-xl {
 	margin: 10px !important;
 }
-.padding-0 {
+.p-0 {
 	padding: 0 !important;
 }
-.padding-xs {
+.p-xs {
 	padding: 2px !important;
 }
-.padding-sm {
+.p-sm {
 	padding: 4px !important;
 }
-.padding-md {
+.p-md {
 	padding: 6px !important;
 }
-.padding-lg {
+.p-lg {
 	padding: 8px !important;
 }
-.padding-xl {
+.p-xl {
 	padding: 10px !important;
 }
 
@@ -113,11 +114,60 @@ h1 {
 /* panels */
 .panel {
 	border-radius: 3px;
+	border: none;
 }
 .panel > .panel-heading > .panel-title {
 	font-size: 1em;
 	padding: .5em 0;
 }
+.panel.panel-mrl-menu {
+	box-shadow: 0 4px 12px 1px rgba(0,0,0,.25);
+	border-radius: 0;
+}
+.panel.panel-mrl-menu > .panel-heading {
+	background-color: rgb(25,50,108);
+	border-color: rgb(25,50,108);
+	color: rgb(255,255,255);
+	padding: 4px 10px;
+	border-radius: 0;
+}
+.panel.panel-mrl-menu > .panel-heading > .panel-title {
+	font-size: .9em;
+}
+.panel.panel-mrl-menu > .panel-body {
+	padding: 0;
+}
+/* pills within panel */
+.panel.panel-mrl-menu ul.nav.nav-pills.nav-stacked li {
+	border-bottom: 1px solid rgb(150,150,150);
+	margin: 0;
+}
+.panel.panel-mrl-menu ul.nav.nav-pills.nav-stacked li:last-child {
+	border-bottom: none;
+}
+.panel.panel-mrl-menu ul.nav.nav-pills.nav-stacked li {
+	font-size: 1.25em;
+	line-height: 1.25em;
+}
+.panel.panel-mrl-menu ul.nav.nav-pills.nav-stacked li i {
+	display: inline-block;
+	font-size: 1.5em;
+	width: 40px;
+	text-align: left;
+}
+
+.panel.panel-mrl-table {
+	border: none;
+	border-radius: 0;
+	box-shadow: 0 4px 12px 1px rgba(0,0,0,.25);
+}
+.panel.panel-mrl-table > .panel-body {
+	padding: 0;
+}
+.panel.panel-mrl-table table.table {
+	margin-bottom: 0;
+}
+
 .panel.panel-mrl-dark {
 	border-color: rgb(40,40,40);
 }
