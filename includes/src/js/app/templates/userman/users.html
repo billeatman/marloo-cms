@@ -1,4 +1,4 @@
-<div class='col-md-9' ng-controller="UsersController as users">
+<div class='col-md-9' ng-controller="UsersCtrl as users">
 	<div class='row'>
 		<div class='col-md-8'>
 			<h1>Users</h1>
@@ -11,7 +11,7 @@
 		<div class='col-md-6'>
 			<div class='panel panel-mrl-table'>
 				<div class='panel-body'>
-					<table class='table table-striped'>
+					<table datatable="ng" class='table table-striped'>
 						<thead>
 							<tr>
 								<th>User</th>

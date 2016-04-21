@@ -1,4 +1,4 @@
- <div ng-controller='UserManTabController as userManTab'>
+ <div ng-controller='UserManTabCtrl as userManTab'>
 	 <div class='col-md-3'>
 		<div id='userman-nav' class='panel panel-mrl-menu'>
 			<div class='panel-heading'>

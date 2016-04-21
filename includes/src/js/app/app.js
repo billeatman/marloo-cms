@@ -1,22 +1,32 @@
 (function() {
 	'use strict';
 	
-	var app = angular.module('marloo-cms', ['ui.bootstrap']);
+	var app = angular.module('marloo-cms', ['datatables','ngResource','ui.bootstrap']);
 
 	app.run(function ($rootScope) {
 		$rootScope.baseUrl = "includes/src/js/app/";
 	});
 
-	app.controller('UsersController', [ '$scope', '$http', function($scope, $http, $route) {
+	/*app.controller('UsersController', [ '$scope', '$http', function($scope, $http, $route) {
 		var userman = this;
 		userman.users = [];
 
 		$http({ method: 'GET', url: '/index.cfm/marlooauth:marlooUser/list'}).success(function(data){
 			userman.users = data;
 		});
-	} ]);
+	} ]);*/
 
-	app.controller('UserManTabController', ['$scope', '$rootScope', function($scope, $rootScope) {
+	app.controller('UsersCtrl',DatatablesCtrl);
+	function DatatablesCtrl($resource) {
+		var userman = this;
+		userman.users = [];
+		$resource('/index.cfm/marlooauth:marlooUser/list').query().$promise.then(function(data) {
+			console.log(data);
+			userman.users = data;
+		});
+	};
+
+	app.controller('UserManTabCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 		$scope.activeTab = 0;
 		$scope.templates = [
 			$rootScope.baseUrl + 'templates/userman/users.html', 
