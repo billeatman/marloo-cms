@@ -156,15 +156,12 @@ h1 {
 	text-align: left;
 }
 
-.panel.panel-mrl-table {
+.panel.panel-mrl-card {
 	border: none;
 	border-radius: 0;
 	box-shadow: 0 4px 12px 1px rgba(0,0,0,.25);
 }
-.panel.panel-mrl-table > .panel-body {
-	padding: 0;
-}
-.panel.panel-mrl-table table.table {
+.panel.panel-mrl-card table.table {
 	margin-bottom: 0;
 }
 

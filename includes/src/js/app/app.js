@@ -16,12 +16,12 @@
 		});
 	} ]);*/
 
-	app.controller('UsersCtrl',DatatablesCtrl);
-	function DatatablesCtrl($resource) {
+	app.controller('UsersCtrl',UsersCtrl);
+	function UsersCtrl($resource, DTOptionsBuilder) {
 		var userman = this;
 		userman.users = [];
-		$resource('/index.cfm/marlooauth:marlooUser/list').query().$promise.then(function(data) {
-			console.log(data);
+		userman.dtOptions = DTOptionsBuilder.newOptions().withDisplayLength(50).withOption('lengthChange',false).withOption('info',false);
+		$resource('/index.cfm/marlooauth/marlooUser/list').query().$promise.then(function(data) {
 			userman.users = data;
 		});
 	};
