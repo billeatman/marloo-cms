@@ -11,30 +11,19 @@
 		<div class='col-md-6'>
 			<div class='panel panel-mrl-card'>
 				<div class='panel-body p-0'>
-					<table datatable="ng" class='table table-striped datatable row-border hover'dt-options='users.dtOptions' >
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Added on</th>
-								<th>Active?</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="user in users.users">
-								<td>{{user.firstName}} {{user.lastName}} </td>
-								<td>{{user.createdDate | date:'MM/dd/yyyy'}}</td>
-								<td>{{user.active}}</td>
-							</tr>
-						</tbody>
-					</table>
+					<p class='text-danger'>Clicked on {{users.message}}.</p>
+					<table datatable='' class='table table-striped datatable row-border hover' dt-options='users.dtOptions' dt-columns='users.dtColumns'></table>
 				</div> <!-- /panel-body -->
 			</div> <!--/panel-card -->
 		</div> <!-- /6 -->
 		<div class='col-md-6'>
-			<div class='panel panel-mrl-card'>
+			<div id='edit-user' class='panel panel-mrl-card'>
 				<div class='panel-heading'>
 					<h2 class='panel-title'>
 						<small>You're editing</small> Billy Eatman
+						<button type="button" class="close" data-target="#edit-user" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
 					</h2>
 				</div> <!-- /panel-heading -->
 				<div class='panel-body'>

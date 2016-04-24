@@ -72,12 +72,12 @@ h1 {
 
 /* buttons */
 .btn {
-	border-radius: 3px;
+	border-radius: 0;
 	font-weight: 700;
 }
 .btn.btn-mrl {
 	color: rgb(40,40,40);
-	border: 1px solid rgb(218,228,251);
+	border: none;
 }
 .btn.btn-mrl-line {
 
@@ -85,7 +85,8 @@ h1 {
 .btn.btn-mrl-primary {
 	background-color: rgb(218,228,251);
 	color: rgb(40,40,40);
-	border-color: rgb(150,150,150);
+	border: none;
+	box-shadow: 0 4px 12px 1px rgba(0,0,0,.25);
 }
 .btn.btn-mrl-primary:hover,
 .btn.btn-mrl-primary-line {
