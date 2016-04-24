@@ -17,13 +17,20 @@
 	} ]);*/
 
 	app.controller('UsersCtrl',UsersCtrl);
-	function UsersCtrl($resource, DTOptionsBuilder) {
+	function UsersCtrl(DTOptionsBuilder, DTColumnBuilder, $filter, $resource) {
 		var userman = this;
-		userman.users = [];
-		userman.dtOptions = DTOptionsBuilder.newOptions().withDisplayLength(50).withOption('lengthChange',false).withOption('info',false);
-		$resource('/index.cfm/marlooauth/marlooUser/list').query().$promise.then(function(data) {
-			userman.users = data;
-		});
+		userman.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
+        return $resource('/index.cfm/marlooauth/marlooUser/list').query().$promise;
+    }).withOption('info',false).withOption('lengthChange',false).withDisplayLength(50);
+    userman.dtColumns = [
+        DTColumnBuilder.newColumn('firstName').withTitle('User').renderWith(function(data, type, full) {
+            return full.firstName + ' ' + full.lastName;
+        }),
+        DTColumnBuilder.newColumn('createdDate').withTitle('Added On').renderWith(function(data, type) {
+        		return $filter('date')(data, 'MMM dd, yyyy');
+        }),
+        DTColumnBuilder.newColumn('active').withTitle('Active?')
+    ];
 	};
 
 	app.controller('UserManTabCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
