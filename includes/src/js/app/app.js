@@ -17,11 +17,14 @@
 	} ]);*/
 
 	app.controller('UsersCtrl',UsersCtrl);
-	function UsersCtrl(DTOptionsBuilder, DTColumnBuilder, $filter, $resource) {
+	function UsersCtrl($scope, DTOptionsBuilder, DTColumnBuilder, $filter, $resource) {
 		var userman = this;
+		userman.message = ''; 
+		userman.someClickHandler = someClickHandler;
+
 		userman.dtOptions = DTOptionsBuilder.fromFnPromise(function() {
-        return $resource('/index.cfm/marlooauth/marlooUser/list').query().$promise;
-    }).withOption('info',false).withOption('lengthChange',false).withDisplayLength(50);
+       	return $resource('/index.cfm/marlooauth/marlooUser/list').query().$promise;
+    }).withOption('info',false).withOption('lengthChange',false).withDisplayLength(50).withOption('rowCallback', rowCallback);
     userman.dtColumns = [
         DTColumnBuilder.newColumn('firstName').withTitle('User').renderWith(function(data, type, full) {
             return full.firstName + ' ' + full.lastName;
@@ -31,6 +34,20 @@
         }),
         DTColumnBuilder.newColumn('active').withTitle('Active?')
     ];
+
+    function someClickHandler(info){
+    	userman.message = info.firstName;
+    };
+
+    function rowCallback(nRow, aData, iDisplayIndex, iDisplayIndexFull){
+    	$('td', nRow).unbind('click');
+    	$('td', nRow).bind('click', function(){
+    		$scope.$apply(function() {
+    			userman.someClickHandler(aData);
+    		});
+    	});
+    };
+
 	};
 
 	app.controller('UserManTabCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
