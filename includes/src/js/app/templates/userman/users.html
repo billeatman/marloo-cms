@@ -17,68 +17,8 @@
 			</div> <!--/panel-card -->
 		</div> <!-- /6 -->
 		<div class='col-md-6'>
-			<div id='edit-user' class='panel panel-mrl-card'>
-				<div class='panel-heading'>
-					<h2 class='panel-title'>
-						<small>You're editing</small> Billy Eatman
-						<button type="button" class="close" data-target="#edit-user" data-dismiss="alert">
-						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-					</h2>
-				</div> <!-- /panel-heading -->
-				<div class='panel-body'>
-					<form id='edit-user' class='form form-horizontal'>
-						<div class='form-group'>
-							<label for='user-fname' class='col-md-3'>Name:</label>
-							<div class='col-md-9'>
-								<div class='row'>
-									<div class='col-md-6'>
-										<input type='text' name='user-fname' class='form-control' value='Billy' />
-									</div>
-									<div class='col-md-6'>
-										<input type='text' name='user-lname' class='form-control' value='Eatman' />
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class='form-group'>
-							<label for='user-email' class='col-md-3'>Username / Email:</label>
-							<div class='col-md-9'>
-								<input type='email' name='user-email' class='form-control' value='billeatman@hotmail.com' />
-							</div>
-						</div>
-						<div class='form-group'>
-							<label for='confirm' class='col-md-3'>Update Password:</label>
-							<div class='col-md-9'>
-								<input type='password' name='confirm' class='form-control' value='' />
-							</div>
-						</div>
-						<div class='form-group'>
-							<label for='role' class='col-md-3'>Role:</label>
-							<div class='col-md-9'>
-								<select class='form-control' name='role'>
-									<option>Junior Editor</option>
-									<option>Editor</option>
-									<option>Content Manager</option>
-									<option>Developer</option>
-								</select>
-							</div>
-						</div>
-						<div class='form-group'>
-							<div class='col-md-6 col-md-offset-3'>
-								<div class='checkbox'>
-									<label>
-										<input type='checkbox' name='user-active' value='' /> This account is active.
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class='form-group text-center'>
-							<button type='submit' name='submit' class='btn btn-md btn-mrl'>Save</button>
-						</div>
-					</form>
-				</div> <!-- /panel-body -->
-			</div> <!-- /panel-card -->
+			<div id='edit-user' class='panel panel-mrl-card' data-user ng-show="showUser">
+			</div>
 			<div class='row'>
 				<div class='col-sm-6'>
 					<div class='panel panel-mrl-card'>
