@@ -32,14 +32,20 @@
 	});
 
 	app.controller('UserCtrl', UserCtrl);
-	function UserCtrl($scope, $rootScope, element){
+	function UserCtrl($scope, $rootScope){
+		$scope.showUser = false;
+		
+		$scope.$on('openUserDetails', function(login) {
+			$scope.showUser = true;
+		});
 	};
 
 
 	app.directive('user', function($rootScope) {
 		return {
+			controller: UserCtrl,
 			controllerAs: 'user',
-			templateUrl: $rootScope.baseUrl + 'templates/userman/user.html'
+			templateUrl: $rootScope.baseUrl + 'templates/userman/user.html?asdf'
 		};
 	});
 
@@ -63,14 +69,16 @@
 	        DTColumnBuilder.newColumn('createdDate').withTitle('Added On').renderWith(function(data, type) {
 	        		return $filter('date')(data, 'MMM dd, yyyy');
 	        }),
-	        DTColumnBuilder.newColumn('active').withTitle('Active?')
+	        DTColumnBuilder.newColumn('active').withTitle('Active?'),
+	        DTColumnBuilder.newColumn('login').notVisible()
 	    ];
 
 	    function someClickHandler(info){
-	    	userServ.getUser('billeatman@hotmail.com').then(function(){
-	  			$scope.showUser = true;
-  			});
-	    	userman.message = info.firstName;
+	    	$scope.$broadcast('openUserDetails', info.login);
+	    //	userServ.getUser('billeatman@hotmail.com').then(function(){
+	  	//		$scope.showUser = true;
+  		//	});
+	    	userman.message = info.login;
 	    };
 
 	    function rowCallback(nRow, aData, iDisplayIndex, iDisplayIndexFull){
